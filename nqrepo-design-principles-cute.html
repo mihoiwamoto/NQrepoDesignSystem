@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デザイン原則 (NQrepoらしさ6原則) - NQrepo Design System</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Quicksand:wght@500;600;700&display=swap">
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-bg-secondary: #f7f8f7;
+            --color-heading: #0a1712;
+            --color-text: #0a1712;
+            --color-text-secondary: #666e6b;
+            --color-border: #e4e7e4;
+            --color-accent: #009944;
+            --color-accent-strong: #00853C;
+            --color-accent-soft: #DDF3E7;
+            --color-accent-text: #00853C;
+            --color-border-strong: #7E877F;
+            --color-accent-on-soft: #007334;
+
+            --font-display: "Inter", "Hiragino Sans", "Yu Gothic Medium", "Meiryo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --font-body: "Inter", "Hiragino Sans", "Yu Gothic Medium", "Meiryo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: 1rem; line-height: 1.7; overflow-x: clip; }
+
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; text-wrap: balance; letter-spacing: 0.01em; color: var(--color-heading); }
+        h1 { font-size: 3.5rem; line-height: 1.25; margin-bottom: 1rem; letter-spacing: 0.02em; }
+        h2 { font-size: 2.2rem; line-height: 1.3; margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 0.75rem; }
+        h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        p { color: var(--color-text-secondary); margin-bottom: 1rem; line-height: 1.8; }
+
+        .eyebrow { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-heading); margin-bottom: 0.85rem; }
+        .eyebrow-soft { display: block; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.02em; color: var(--color-text-secondary); margin-top: 0.3rem; margin-bottom: 0; }
+        .logo-mark { display: block; width: auto; height: 34px; margin-right: 0.6rem; flex: none; }
+
+        /* ---- Header (共通) ---- */
+        header { position: sticky; top: 0; z-index: 100; background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
+        nav { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 1rem 5rem; }
+        .logo { display: inline-flex; align-items: center; font-size: 1.55rem; font-weight: 700; color: var(--color-heading); text-decoration: none; letter-spacing: 0.01em; }
+        .nav-right { display: flex; align-items: center; gap: 0.5rem; }
+        .nav-menu { display: flex; gap: 0; list-style: none; }
+        .nav-menu a { position: relative; text-decoration: none; color: var(--color-text); padding: 0.75rem 1rem; font-size: 0.9rem; transition: color 0.2s; font-weight: 500; }
+        .nav-menu a::after { content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.55rem; height: 2px; background: var(--color-accent); transform: scaleX(0); transform-origin: left; transition: transform 0.2s ease; }
+        .nav-menu a:hover { color: var(--color-accent-text); }
+        .nav-menu a:hover::after { transform: scaleX(1); }
+        .nav-menu a.is-current { color: var(--color-accent-text); }
+        .nav-menu a.is-current::after { transform: scaleX(1); }
+
+        main { max-width: 1400px; margin: 0 auto; }
+
+        /* ---- Page header ---- */
+        .page-hero { position: relative; isolation: isolate; overflow: clip; padding: clamp(4rem, 9vh, 6.5rem) 5rem clamp(3rem, 6vh, 4.5rem); border-bottom: 1px solid var(--color-border); }
+        .page-hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+        .page-hero-blob { position: absolute; border-radius: 50%; filter: blur(44px); }
+        .page-hero-blob-1 { width: 40vw; height: 40vw; max-width: 620px; max-height: 620px; top: -30%; right: -8%; background: radial-gradient(circle, rgba(0, 153, 68, 0.26) 0%, transparent 68%); }
+        .page-hero-blob-2 { width: 26vw; height: 26vw; max-width: 420px; max-height: 420px; bottom: -40%; right: 22%; background: radial-gradient(circle, rgba(62, 217, 122, 0.20) 0%, transparent 70%); }
+        .page-hero-inner { max-width: 820px; }
+        .breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; list-style: none; font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 1.75rem; }
+        .breadcrumb a { color: var(--color-text-secondary); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--color-accent-text); }
+        .breadcrumb li + li::before { content: "/"; margin-right: 0.5rem; color: var(--color-border-strong); }
+        .breadcrumb [aria-current] { color: var(--color-heading); font-weight: 600; }
+        .page-hero .eyebrow { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.72rem; letter-spacing: 0.18em; color: var(--color-accent-on-soft); background: var(--color-accent-soft); border-radius: 999px; padding: 0.4rem 0.95rem; margin-bottom: 1.4rem; }
+        .page-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.2; margin-bottom: 0.5rem; letter-spacing: 0.01em; }
+        .page-hero h1 small { display: block; font-size: 0.42em; font-weight: 500; letter-spacing: 0.02em; color: var(--color-text-secondary); margin-top: 0.6rem; }
+        .page-lead { font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.95; color: var(--color-text); max-width: 42em; margin: 1.75rem 0 0; }
+        .page-lead + .page-lead { margin-top: 1rem; color: var(--color-text-secondary); }
+        .page-lead strong { color: var(--color-heading); }
+
+        .reveal { opacity: 0; transform: translateY(18px); animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: var(--d, 0s); }
+        @keyframes rise { to { opacity: 1; transform: none; } }
+
+        /* ---- Sections ---- */
+        .section-block { padding: 5rem 5rem; border-top: 1px solid var(--color-border); }
+        .section-block:first-of-type { border-top: none; }
+        .section-block.is-alt { background: var(--color-bg-secondary); }
+        .section-header { margin-bottom: 3rem; }
+        .section-header h2 { margin-top: 0; margin-bottom: 0.5rem; }
+        .section-header p { font-size: 1rem; max-width: 640px; }
+        .section-number-row { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem; }
+        .section-number { display: inline-block; font-size: 1.05rem; font-weight: 700; color: var(--color-bg); background: var(--color-accent); border-radius: 999px; padding: 0.2rem 0.65rem; letter-spacing: 0.02em; }
+        .section-number-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-secondary); }
+
+        /* ---- Overview (全体図) ---- */
+        .overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; }
+        .overview-figure { margin: 0; padding: 2rem; border: 1px solid var(--color-border); border-radius: 16px; background: var(--color-bg); }
+        .overview-figure svg { display: block; width: 100%; height: auto; }
+        .overview-figure figcaption { font-size: 0.78rem; line-height: 1.8; color: var(--color-text-secondary); text-align: center; margin-top: 0.75rem; }
+        .overview-copy p { font-size: 0.95rem; }
+        .overview-copy .lede-strong { font-size: 1.05rem; line-height: 1.95; color: var(--color-text); }
+        .overview-copy strong { color: var(--color-heading); }
+        .overview-list { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+        .overview-list a { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 0.9rem; border: 1px solid var(--color-border); border-radius: 10px; background: var(--color-bg); text-decoration: none; color: var(--color-heading); font-size: 0.88rem; font-weight: 600; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .overview-list a:hover { border-color: var(--color-accent); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(10, 23, 18, 0.06); }
+        .overview-list .no { font-family: monospace; font-size: 0.72rem; font-weight: 700; color: var(--color-accent-on-soft); background: var(--color-accent-soft); border-radius: 6px; padding: 0.15rem 0.45rem; flex: none; }
+        .overview-list .en { display: block; font-family: monospace; font-size: 0.66rem; font-weight: 400; color: var(--color-text-secondary); }
+
+        /* ---- Principle articles ---- */
+        .principle-list { display: flex; flex-direction: column; gap: 0; }
+        .principle-article { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 3.5rem; align-items: center; padding: 4rem 0; border-top: 1px solid var(--color-border); scroll-margin-top: 5.5rem; }
+        .principle-article:first-child { border-top: none; padding-top: 0; }
+        .principle-article:nth-child(even) .principle-visual { order: -1; }
+        .principle-head { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.25rem; }
+        .principle-index { font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-accent-on-soft); background: var(--color-accent-soft); border-radius: 999px; padding: 0.3rem 0.75rem; }
+        .principle-en { font-family: monospace; font-size: 0.74rem; letter-spacing: 0.04em; color: var(--color-text-secondary); }
+        .principle-article h3 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.3; margin-bottom: 1.25rem; }
+        .principle-question { position: relative; font-size: clamp(1.05rem, 1.5vw, 1.2rem); line-height: 1.85; font-weight: 600; color: var(--color-heading); padding-left: 1.1rem; border-left: 3px solid var(--color-accent); margin-bottom: 1.5rem; text-wrap: pretty; }
+        .principle-body p { font-size: 0.95rem; line-height: 1.95; }
+        .principle-body p:last-child { margin-bottom: 0; }
+        .principle-body strong { color: var(--color-heading); font-weight: 700; }
+        .principle-close { display: block; margin-top: 0.4rem; font-weight: 700; color: var(--color-heading); }
+
+        .principle-practice { margin-top: 1.75rem; padding: 1.2rem 1.35rem; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg); }
+        .is-alt .principle-practice { background: var(--color-bg); }
+        .principle-practice-label { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-on-soft); margin-bottom: 0.6rem; }
+        .principle-practice ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+        .principle-practice li { position: relative; padding-left: 1.4rem; font-size: 0.84rem; line-height: 1.8; color: var(--color-text-secondary); }
+        .principle-practice li::before { content: ""; position: absolute; left: 0.1rem; top: 0.62rem; width: 0.55rem; height: 0.55rem; border-radius: 2px; background: var(--color-accent); }
+        .principle-practice li strong { color: var(--color-heading); }
+
+        .principle-visual { display: flex; align-items: center; justify-content: center; aspect-ratio: 1 / 0.92; padding: 2rem; border-radius: 20px; background: linear-gradient(160deg, #F2FAF5 0%, #E4F5EB 100%); border: 1px solid #D4EBDD; }
+        .principle-visual svg { width: 100%; max-width: 380px; height: auto; display: block; }
+
+        /* ---- Usage ---- */
+        .usage-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+        .usage-card { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.6rem; border: 1px solid var(--color-border); border-radius: 14px; background: var(--color-bg); }
+        .usage-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: var(--color-accent-soft); color: var(--color-accent-on-soft); }
+        .usage-card h4 { margin: 0.25rem 0 0; font-size: 1.05rem; font-weight: 700; }
+        .usage-card p { font-size: 0.86rem; line-height: 1.9; margin: 0; }
+        .usage-card p strong { color: var(--color-heading); }
+        .usage-steps { list-style: none; margin: 0.35rem 0 0; padding: 0.9rem 0 0; border-top: 1px dashed var(--color-border); display: flex; flex-direction: column; gap: 0.4rem; counter-reset: step; }
+        .usage-steps li { position: relative; padding-left: 1.7rem; font-size: 0.8rem; line-height: 1.8; color: var(--color-text-secondary); counter-increment: step; }
+        .usage-steps li::before { content: counter(step); position: absolute; left: 0; top: 0.2rem; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: var(--color-heading); color: var(--color-bg); font-family: monospace; font-size: 0.66rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+        .conflict-note { margin-top: 2rem; padding: 1.4rem 1.6rem; border-left: 3px solid var(--color-accent); border-radius: 0 12px 12px 0; background: var(--color-bg); }
+        .conflict-note h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .conflict-note p { font-size: 0.88rem; line-height: 1.9; margin: 0; }
+        .conflict-note strong { color: var(--color-heading); }
+
+        /* ---- Related ---- */
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+        .related-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg); text-decoration: none; color: inherit; transition: all 0.2s; }
+        .related-card:hover { border-color: var(--color-accent); box-shadow: 0 8px 24px rgba(10, 23, 18, 0.06); transform: translateY(-2px); }
+        .related-card h4 { margin: 0; font-size: 1rem; font-weight: 700; }
+        .related-card p { margin: 0; font-size: 0.84rem; line-height: 1.8; }
+        .related-card .card-link { margin-top: 0.5rem; }
+        .card-link { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--color-accent-text); text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+        .card-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
+        .related-card:hover .card-link svg, .card-link:hover svg { transform: translateX(3px); }
+
+        /* ---- Footer (共通) ---- */
+        footer { background: var(--color-bg-secondary); border-top: 1px solid var(--color-border); padding: 3.5rem 5rem 2rem; }
+        .footer-content { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h4 { margin-bottom: 1rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section a { color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.5rem; transition: color 0.2s; }
+        .footer-section a:hover { color: var(--color-accent-text); }
+        .footer-bottom { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; color: var(--color-text-secondary); font-size: 0.9rem; }
+
+        @media (max-width: 1000px) {
+            .overview { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+            .principle-article { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding: 3rem 0; }
+            .principle-article:nth-child(even) .principle-visual { order: 0; }
+            .principle-visual { aspect-ratio: auto; max-width: 420px; }
+            .usage-grid { grid-template-columns: minmax(0, 1fr); }
+        }
+        /* 両端パディング: 中間幅では段階的に縮小 */
+        @media (max-width: 1100px) {
+            nav, .section-block, footer { padding-left: 2.5rem; padding-right: 2.5rem; }
+            .page-hero { padding-left: 2.5rem; padding-right: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; }
+            .logo { font-size: 1.25rem; white-space: nowrap; }
+            .nav-right { flex-direction: column; width: 100%; gap: 0.75rem; }
+            .nav-menu { flex-direction: column; gap: 0; width: 100%; }
+            nav, .section-block, footer { padding-left: 2rem; padding-right: 2rem; }
+            .page-hero { padding: 3rem 1.5rem 2.5rem; }
+            .section-block { padding: 3.5rem 1.5rem; }
+            .overview-list { grid-template-columns: minmax(0, 1fr); }
+            .principle-visual { padding: 1.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; animation: none !important; }
+        }
+
+        /* ==========================================================================
+           デザイン原則ページ — "Food Factory / まかない" Theme
+           nqrepo-design-guide-cute.html と同じ設計言語。内容は変更せず見た目だけ差し替え。
+           ========================================================================== */
+
+        :root {
+            --color-bg: #FFFDF7;
+            --color-bg-secondary: #FFF5E4;
+            --color-heading: #3A2D22;
+            --color-text: #3A2D22;
+            --color-text-secondary: #7A6A5C;
+            --color-border: #F0E2CC;
+
+            --color-accent: #009944;
+            --color-accent-strong: #00853C;
+            --color-accent-soft: #DFF7E7;
+            --color-accent-text: #00793A;
+            --color-accent-on-soft: #00713A;
+            --color-border-strong: #9A7F5E;
+
+            --nq-pink: #FF8BAE;
+            --nq-pink-soft: #FFECF2;
+            --nq-pink-ink: #B93C67;
+            --nq-butter: #FFC94A;
+            --nq-butter-soft: #FFF5D9;
+            --nq-butter-ink: #8A6008;
+            --nq-sky: #63C5E8;
+            --nq-sky-soft: #E4F5FC;
+            --nq-sky-ink: #1A6E8E;
+            --nq-carrot: #FF9A5B;
+            --nq-carrot-soft: #FFEEE2;
+            --nq-carrot-ink: #A64B15;
+            --nq-grape: #B695E0;
+            --nq-grape-soft: #F2EBFB;
+            --nq-grape-ink: #6B44A3;
+
+            --r-sm: 10px;
+            --r-md: 16px;
+            --r-lg: 22px;
+            --r-xl: 28px;
+            --pop: rgba(154, 127, 94, 0.16);
+            --pop-soft: rgba(154, 127, 94, 0.10);
+
+            --font-display: "Quicksand", "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic Medium", "Meiryo", sans-serif;
+            --font-body: "Quicksand", "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic Medium", "Meiryo", sans-serif;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            background-image: radial-gradient(circle at 1px 1px, rgba(154, 127, 94, 0.11) 1px, transparent 1.4px);
+            background-size: 22px 22px;
+            font-weight: 500;
+        }
+        h1, h2, h3, h4 { font-weight: 700; }
+        ::selection { background: var(--nq-butter-soft); color: var(--color-heading); }
+
+        a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+            outline: 3px solid var(--nq-sky);
+            outline-offset: 3px;
+            border-radius: var(--r-sm);
+        }
+
+        /* ---------- ヘッダー ---------- */
+        header {
+            background: rgba(255, 253, 247, 0.92);
+            -webkit-backdrop-filter: blur(10px) saturate(1.4);
+            backdrop-filter: blur(10px) saturate(1.4);
+            border-bottom: 2px solid var(--color-border);
+        }
+        header::after {
+            content: "";
+            position: absolute; left: 0; right: 0; bottom: -5px; height: 5px;
+            background: repeating-linear-gradient(90deg,
+                var(--color-accent) 0 16px, var(--nq-pink) 16px 32px,
+                var(--nq-butter) 32px 48px, var(--nq-sky) 48px 64px);
+            opacity: 0.55;
+            pointer-events: none;
+        }
+        .logo { font-family: var(--font-display); }
+        .logo-mark { transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .logo:hover .logo-mark { transform: rotate(-8deg) scale(1.06); }
+
+        .nav-menu { gap: 0.25rem; }
+        .nav-menu a {
+            border-radius: 999px; padding: 0.5rem 0.95rem; font-weight: 700;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .nav-menu a::after { display: none; }
+        .nav-menu a:hover { background: var(--color-accent-soft); color: var(--color-accent-on-soft); transform: translateY(-1px); }
+        .nav-menu a.is-current { background: var(--color-accent-soft); color: var(--color-accent-on-soft); }
+
+        /* ---------- ページヒーロー ---------- */
+        .page-hero {
+            background: linear-gradient(180deg, #FFF6E3 0%, #FFFDF7 72%);
+            border-bottom: none;
+            padding-bottom: clamp(4.5rem, 9vh, 6.5rem);
+        }
+        .page-hero-blob { filter: blur(52px); }
+        .page-hero-blob-1 { background: radial-gradient(circle, rgba(255, 201, 74, 0.26) 0%, transparent 68%); }
+        .page-hero-blob-2 { background: radial-gradient(circle, rgba(255, 139, 174, 0.22) 0%, transparent 70%); }
+        /* ギンガムチェック */
+        .page-hero-bg::before {
+            content: "";
+            position: absolute; inset: -8%;
+            background-image:
+                linear-gradient(90deg, rgba(154, 127, 94, 0.075) 50%, transparent 50%),
+                linear-gradient(0deg, rgba(154, 127, 94, 0.075) 50%, transparent 50%);
+            background-size: 64px 64px, 64px 64px;
+            -webkit-mask-image: radial-gradient(ellipse 80% 78% at 45% 38%, #000 15%, transparent 95%);
+            mask-image: radial-gradient(ellipse 80% 78% at 45% 38%, #000 15%, transparent 95%);
+        }
+        /* ベルトコンベア */
+        .page-hero::after {
+            content: "";
+            position: absolute; left: -6%; right: -6%; bottom: 0; height: 46px;
+            z-index: -1;
+            border-top: 3px solid #CDB48F;
+            border-radius: 24px 24px 0 0;
+            background-color: #EADAC0;
+            background-image:
+                radial-gradient(circle at 50% 62%, #FFFFFF 0 10px, rgba(120, 95, 66, 0.38) 10px 12px, transparent 12.6px),
+                repeating-linear-gradient(90deg, rgba(58, 45, 34, 0.16) 0 3px, transparent 3px 30px);
+            background-size: 150px 46px, 30px 46px;
+            animation: nqBeltRoll 3.2s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes nqBeltRoll { to { background-position: 150px 0, 150px 0; } }
+
+        .breadcrumb {
+            gap: 0.45rem;
+            font-family: var(--font-display); font-weight: 600;
+        }
+        .breadcrumb li + li::before { color: var(--nq-butter); font-weight: 700; }
+        .breadcrumb [aria-current] {
+            background: var(--nq-butter-soft);
+            color: var(--nq-butter-ink);
+            border-radius: 999px;
+            padding: 0.15rem 0.7rem;
+        }
+        .page-hero .eyebrow {
+            background: #FFFFFF;
+            border: 2px solid var(--color-accent-soft);
+            box-shadow: 0 3px 0 rgba(0, 153, 68, 0.16);
+            font-family: var(--font-display); font-weight: 700;
+            padding: 0.45rem 1.05rem;
+        }
+        .page-hero h1 { font-family: var(--font-display); line-height: 1.28; }
+        .page-hero h1 small { font-weight: 600; }
+        .page-lead { font-weight: 500; }
+
+        /* ---------- セクション ---------- */
+        .section-block { border-top: none; position: relative; padding-top: 5.5rem; padding-bottom: 5rem; }
+        .section-block.is-alt {
+            background-color: var(--color-bg-secondary);
+            background-image: radial-gradient(circle at 1px 1px, rgba(154, 127, 94, 0.13) 1px, transparent 1.4px);
+            background-size: 22px 22px;
+        }
+        .section-block.is-alt::before,
+        .section-block.is-alt::after {
+            content: "";
+            position: absolute; left: 0; right: 0; height: 26px;
+            background: radial-gradient(circle at 50% 100%, var(--color-bg-secondary) 0 48%, transparent 49%) 0 0 / 32px 26px repeat-x;
+            pointer-events: none;
+        }
+        .section-block.is-alt::before { top: -25px; }
+        .section-block.is-alt::after { bottom: -25px; transform: scaleY(-1); }
+
+        .section-header { position: relative; margin-bottom: 3.25rem; }
+        .section-header h2 { font-family: var(--font-display); font-size: 2.1rem; }
+        .section-header p { font-weight: 500; }
+        .section-number-row { gap: 0.9rem; }
+        .section-number {
+            font-family: var(--font-display); font-weight: 700;
+            border-radius: 12px; padding: 0.3rem 0.8rem;
+            color: #FFFFFF;
+            background: linear-gradient(180deg, #14B65C, #009944);
+            box-shadow: 0 3px 0 rgba(0, 112, 47, 0.35);
+            transform: rotate(-4deg);
+        }
+        .section-number-label { font-family: var(--font-display); font-weight: 700; }
+
+        /* セクションのマスコット（装飾のみ・読み上げ対象外） */
+        .section-header::after {
+            position: absolute; top: -0.6rem; right: 0.25rem;
+            font-size: 2.8rem; line-height: 1;
+            filter: drop-shadow(0 5px 7px rgba(154, 127, 94, 0.28));
+            animation: nqFloaty 4.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+        #overview .section-header::after { content: "🗺️" / ""; }
+        #principles .section-header::after { content: "⭐" / ""; animation-delay: 0.6s; }
+        #usage .section-header::after { content: "🥄" / ""; animation-delay: 1.2s; }
+        #related .section-header::after { content: "📚" / ""; animation-delay: 1.8s; }
+        @keyframes nqFloaty {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-9px) rotate(5deg); }
+        }
+
+        /* ---------- 全体図 ---------- */
+        .overview-figure {
+            background: #FFFFFF;
+            border: 2px solid var(--color-border);
+            border-radius: var(--r-xl);
+            box-shadow: 0 4px 0 var(--pop-soft);
+        }
+        .overview-copy .lede-strong { font-weight: 600; }
+        .overview-list { gap: 0.7rem; }
+        .overview-list a {
+            background: #FFFFFF;
+            border: 2px solid var(--color-border);
+            border-radius: var(--r-md);
+            box-shadow: 0 3px 0 var(--pop-soft);
+            font-family: var(--font-display); font-weight: 700;
+        }
+        .overview-list a:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 0 rgba(0, 153, 68, 0.16);
+        }
+        .overview-list .no {
+            border-radius: 999px; padding: 0.2rem 0.55rem;
+            font-family: var(--font-display); font-weight: 700;
+            border: 2px solid #A9DCC0;
+        }
+        .overview-list li:nth-child(2) a:hover { border-color: var(--nq-pink); box-shadow: 0 6px 0 rgba(185, 60, 103, 0.14); }
+        .overview-list li:nth-child(2) .no { background: var(--nq-pink-soft); color: var(--nq-pink-ink); border-color: #FFD0DF; }
+        .overview-list li:nth-child(3) a:hover { border-color: var(--nq-butter); box-shadow: 0 6px 0 rgba(138, 96, 8, 0.14); }
+        .overview-list li:nth-child(3) .no { background: var(--nq-butter-soft); color: var(--nq-butter-ink); border-color: #F6DFA6; }
+        .overview-list li:nth-child(4) a:hover { border-color: var(--nq-sky); box-shadow: 0 6px 0 rgba(26, 110, 142, 0.14); }
+        .overview-list li:nth-child(4) .no { background: var(--nq-sky-soft); color: var(--nq-sky-ink); border-color: #C3E8F5; }
+        .overview-list li:nth-child(5) a:hover { border-color: var(--nq-carrot); box-shadow: 0 6px 0 rgba(166, 75, 21, 0.14); }
+        .overview-list li:nth-child(5) .no { background: var(--nq-carrot-soft); color: var(--nq-carrot-ink); border-color: #FFD3B5; }
+        .overview-list li:nth-child(6) a:hover { border-color: var(--nq-grape); box-shadow: 0 6px 0 rgba(107, 68, 163, 0.14); }
+        .overview-list li:nth-child(6) .no { background: var(--nq-grape-soft); color: var(--nq-grape-ink); border-color: #DCCBF2; }
+
+        /* ---------- 原則ごとに色を配る ---------- */
+        .principle-article { --tone: var(--color-accent); --tone-ink: var(--color-accent-on-soft); --tone-soft: var(--color-accent-soft); --tone-line: #A9DCC0; }
+        .principle-article:nth-child(2) { --tone: var(--nq-pink); --tone-ink: var(--nq-pink-ink); --tone-soft: var(--nq-pink-soft); --tone-line: #FFD0DF; }
+        .principle-article:nth-child(3) { --tone: var(--nq-butter); --tone-ink: var(--nq-butter-ink); --tone-soft: var(--nq-butter-soft); --tone-line: #F6DFA6; }
+        .principle-article:nth-child(4) { --tone: var(--nq-sky); --tone-ink: var(--nq-sky-ink); --tone-soft: var(--nq-sky-soft); --tone-line: #C3E8F5; }
+        .principle-article:nth-child(5) { --tone: var(--nq-carrot); --tone-ink: var(--nq-carrot-ink); --tone-soft: var(--nq-carrot-soft); --tone-line: #FFD3B5; }
+        .principle-article:nth-child(6) { --tone: var(--nq-grape); --tone-ink: var(--nq-grape-ink); --tone-soft: var(--nq-grape-soft); --tone-line: #DCCBF2; }
+
+        .principle-article { border-top: 2px dashed var(--color-border); }
+        .principle-index {
+            font-family: var(--font-display);
+            background: var(--tone-soft);
+            color: var(--tone-ink);
+            border: 2px solid var(--tone-line);
+            border-radius: 999px;
+            padding: 0.28rem 0.8rem;
+        }
+        .principle-article h3 { font-family: var(--font-display); line-height: 1.35; }
+        .principle-question {
+            border-left: none;
+            padding: 1rem 1.2rem;
+            border-radius: var(--r-md);
+            background: var(--tone-soft);
+            border: 2px dashed var(--tone-line);
+            color: var(--color-heading);
+        }
+        .principle-practice {
+            background: #FFFFFF;
+            border: 2px solid var(--color-border);
+            border-radius: var(--r-lg);
+            box-shadow: 0 4px 0 var(--pop-soft);
+        }
+        .is-alt .principle-practice { background: #FFFFFF; }
+        .principle-practice-label {
+            font-family: var(--font-display);
+            background: var(--tone-soft);
+            color: var(--tone-ink);
+            border-radius: 999px;
+            padding: 0.2rem 0.75rem;
+        }
+        .principle-practice li::before { border-radius: 50%; background: var(--tone); top: 0.58rem; }
+        .principle-visual {
+            border-radius: var(--r-xl);
+            background: linear-gradient(160deg, #FFFFFF 0%, var(--tone-soft) 100%);
+            border: 2px solid var(--tone-line);
+            box-shadow: 0 5px 0 var(--pop-soft);
+        }
+
+        /* ---------- 使い方 ---------- */
+        .usage-card {
+            background: #FFFFFF;
+            border: 2px solid var(--color-border);
+            border-radius: var(--r-lg);
+            box-shadow: 0 4px 0 var(--pop-soft);
+            transition: transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.22s, border-color 0.22s;
+        }
+        .usage-card:hover { transform: translateY(-4px); border-color: var(--color-accent); box-shadow: 0 8px 0 rgba(0, 153, 68, 0.16); }
+        .usage-card h4 { font-family: var(--font-display); }
+        .usage-icon { width: 46px; height: 46px; border-radius: 999px; }
+        .usage-grid > .usage-card:nth-child(2) .usage-icon { background: var(--nq-pink-soft); color: var(--nq-pink-ink); }
+        .usage-grid > .usage-card:nth-child(2):hover { border-color: var(--nq-pink); box-shadow: 0 8px 0 rgba(185, 60, 103, 0.14); }
+        .usage-grid > .usage-card:nth-child(3) .usage-icon { background: var(--nq-sky-soft); color: var(--nq-sky-ink); }
+        .usage-grid > .usage-card:nth-child(3):hover { border-color: var(--nq-sky); box-shadow: 0 8px 0 rgba(26, 110, 142, 0.14); }
+        .usage-steps { border-top: 2px dashed var(--color-border); }
+        .usage-steps li::before {
+            background: var(--color-accent-soft);
+            color: var(--color-accent-on-soft);
+            border: 1.5px solid #A9DCC0;
+            font-family: var(--font-display); font-weight: 700;
+            width: 1.35rem; height: 1.35rem;
+        }
+        .usage-steps li { padding-left: 1.95rem; }
+
+        .conflict-note {
+            border-left: none;
+            border: 2px dashed var(--nq-butter);
+            border-radius: var(--r-lg);
+            background: var(--nq-butter-soft);
+            padding: 1.5rem 1.7rem;
+        }
+        .conflict-note h4 { font-family: var(--font-display); color: var(--nq-butter-ink); }
+
+        /* ---------- 関連ページ ---------- */
+        .related-card {
+            background: #FFFFFF;
+            border: 2px solid var(--color-border);
+            border-radius: var(--r-lg);
+            box-shadow: 0 4px 0 var(--pop-soft);
+        }
+        .related-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 0 rgba(0, 153, 68, 0.16), 0 16px 26px rgba(154, 127, 94, 0.14);
+        }
+        .related-card h4 { font-family: var(--font-display); }
+        .related-grid > .related-card:nth-child(2):hover { border-color: var(--nq-pink); box-shadow: 0 8px 0 rgba(185, 60, 103, 0.14), 0 16px 26px rgba(154, 127, 94, 0.14); }
+        .related-grid > .related-card:nth-child(3):hover { border-color: var(--nq-sky); box-shadow: 0 8px 0 rgba(26, 110, 142, 0.14), 0 16px 26px rgba(154, 127, 94, 0.14); }
+        .card-link { font-family: var(--font-display); }
+
+        /* ---------- フッター ---------- */
+        footer {
+            position: relative;
+            background-color: #FFF5E4;
+            background-image: radial-gradient(circle at 1px 1px, rgba(154, 127, 94, 0.13) 1px, transparent 1.4px);
+            background-size: 22px 22px;
+            border-top: none;
+        }
+        /* 直前の #related もクリーム色なので、継ぎ目はストライプ1本だけにする */
+        #related::after { display: none; }
+        footer::before {
+            content: "";
+            position: absolute; top: -25px; left: 0; right: 0; height: 26px;
+            background: radial-gradient(circle at 50% 100%, #FFF5E4 0 48%, transparent 49%) 0 0 / 32px 26px repeat-x;
+            pointer-events: none;
+        }
+        footer::after {
+            content: "";
+            position: absolute; top: 0; left: 0; right: 0; height: 5px;
+            background: repeating-linear-gradient(90deg,
+                var(--color-accent) 0 16px, var(--nq-pink) 16px 32px,
+                var(--nq-butter) 32px 48px, var(--nq-sky) 48px 64px);
+            opacity: 0.55;
+            pointer-events: none;
+        }
+        .footer-section h4 { font-family: var(--font-display); }
+        .footer-section a { font-weight: 600; transition: color 0.2s, transform 0.2s; }
+        .footer-section a:hover { transform: translateX(3px); }
+        .footer-bottom { border-top: 2px dashed var(--color-border); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-hero::after, .section-header::after { animation: none !important; }
+        }
+
+        @media (max-width: 768px) {
+            .section-header::after { font-size: 1.9rem; top: -0.2rem; }
+            .section-block { padding-top: 4rem; padding-bottom: 3.5rem; }
+            .section-header h2 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="nqrepo-design-guide-cute.html" class="logo"><img class="logo-mark" src="data:image/png;base64,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" alt="" aria-hidden="true" width="192" height="207" decoding="async">NQrepo Design System</a>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="nqrepo-design-guide-cute.html#brand">ブランド</a></li>
+                    <li><a class="is-current" aria-current="page" href="nqrepo-design-principles-cute.html">原則</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html#styles">スタイル</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html#components">コンポーネント</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html#about">貢献する</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-bg" aria-hidden="true">
+                <span class="page-hero-blob page-hero-blob-1"></span>
+                <span class="page-hero-blob page-hero-blob-2"></span>
+            </div>
+            <div class="page-hero-inner">
+                <ol class="breadcrumb reveal" style="--d: 0.05s">
+                    <li><a href="nqrepo-design-guide-cute.html">NQrepo</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html#brand">ブランド</a></li>
+                    <li aria-current="page">デザイン原則</li>
+                </ol>
+                <span class="eyebrow reveal" style="--d: 0.1s">Design Principles</span>
+                <h1 class="reveal" style="--d: 0.2s">デザイン原則<small>NQrepoらしさ 6原則</small></h1>
+                <p class="page-lead reveal" style="--d: 0.35s">デザイン原則は「NQrepoらしさ」を届けるために、私たちがどのように設計し、デザインするかの<strong>「約束事」</strong>です。</p>
+                <p class="page-lead reveal" style="--d: 0.45s">現場で記録する人、事務所で確認・承認する人。立場もデバイスも違う利用者が、同じ記録を安心して受け渡せるように、私たちがどのように考え、どのように判断すべきかの指針にしてください。</p>
+            </div>
+        </section>
+
+        <!-- 01. 全体図 -->
+        <section class="section-block" id="overview">
+            <div class="section-header">
+                <div class="section-number-row">
+                    <span class="section-number">01</span>
+                    <span class="section-number-label">Overview</span>
+                </div>
+                <h2>6つの原則と、その関係</h2>
+                <p>NQrepoらしさは6つの原則で成り立っています。それぞれは独立したものではなく、互いに支え合ってひとつの体験をつくります。</p>
+            </div>
+            <div class="overview">
+                <figure class="overview-figure">
+                    <svg viewBox="-95 20 750 495" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ovTitle ovDesc">
+                        <title id="ovTitle">NQrepoらしさを構成する6つの原則の関係図</title>
+                        <desc id="ovDesc">中央の「NQrepoらしさ」を囲むように、現場で迷わない・記録は正確に・誰が見ても追える・一貫性・アクセシビリティ・段階的に育てる、の6つの原則が円形に並び、隣同士がつながっている。番号は判断に迷ったときの優先順位。</desc>
+                        <defs>
+                            <linearGradient id="ovRing" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#3ED97A"/>
+                                <stop offset="1" stop-color="#00853C"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- ring -->
+                        <circle cx="280" cy="260" r="168" fill="none" stroke="url(#ovRing)" stroke-width="3" stroke-dasharray="6 8" opacity="0.7"/>
+                        <circle cx="280" cy="260" r="122" fill="#F2FAF5" stroke="#D4EBDD" stroke-width="1.5"/>
+                        <!-- arrows along ring (clockwise) -->
+                        <g fill="#00853C" opacity="0.9">
+                            <polygon points="380,88 396,97 384,110" transform="rotate(-2 388 99)"/>
+                            <polygon points="454,326 462,343 445,339"/>
+                            <polygon points="180,432 164,423 176,410" transform="rotate(178 172 421)"/>
+                        </g>
+                        <!-- center -->
+                        <text x="280" y="248" text-anchor="middle" font-family="Inter, Hiragino Sans, sans-serif" font-size="12" font-weight="700" letter-spacing="3" fill="#00853C">NQREPO</text>
+                        <text x="280" y="280" text-anchor="middle" font-family="Inter, Hiragino Sans, sans-serif" font-size="24" font-weight="700" fill="#0a1712">らしさ</text>
+                        <text x="280" y="306" text-anchor="middle" font-family="Inter, Hiragino Sans, sans-serif" font-size="11" fill="#666e6b">迷わず・正確に・追える</text>
+
+                        <!-- nodes: 6 around center at r=168 -->
+                        <!-- 01 top -->
+                        <g>
+                            <circle cx="280" cy="92" r="30" fill="#ffffff" stroke="#009944" stroke-width="2.5"/>
+                            <text x="280" y="97" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="700" fill="#00853C">01</text>
+                            <text x="280" y="40" text-anchor="middle" font-family="Inter, Hiragino Sans, sans-serif" font-size="14" font-weight="700" fill="#0a1712">現場で迷わない</text>
+                            <text x="280" y="55" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#666e6b">Clarity on site</text>
+                        </g>
+                        <!-- 02 upper right -->
+                        <g>
+                            <circle cx="425.5" cy="176" r="30" fill="#ffffff" stroke="#009944" stroke-width="2.5"/>
+                            <text x="425.5" y="181" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="700" fill="#00853C">02</text>
+                            <text x="470" y="150" text-anchor="start" font-family="Inter, Hiragino Sans, sans-serif" font-size="14" font-weight="700" fill="#0a1712">記録は正確に</text>
+                            <text x="470" y="165" text-anchor="start" font-family="monospace" font-size="9.5" fill="#666e6b">Accuracy</text>
+                        </g>
+                        <!-- 03 lower right -->
+                        <g>
+                            <circle cx="425.5" cy="344" r="30" fill="#ffffff" stroke="#009944" stroke-width="2.5"/>
+                            <text x="425.5" y="349" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="700" fill="#00853C">03</text>
+                            <text x="470" y="370" text-anchor="start" font-family="Inter, Hiragino Sans, sans-serif" font-size="14" font-weight="700" fill="#0a1712">誰が見ても追える</text>
+                            <text x="470" y="385" text-anchor="start" font-family="monospace" font-size="9.5" fill="#666e6b">Transparency</text>
+                        </g>
+                        <!-- 04 bottom -->
+                        <g>
+                            <circle cx="280" cy="428" r="30" fill="#ffffff" stroke="#009944" stroke-width="2.5"/>
+                            <text x="280" y="433" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="700" fill="#00853C">04</text>
+                            <text x="280" y="486" text-anchor="middle" font-family="Inter, Hiragino Sans, sans-serif" font-size="14" font-weight="700" fill="#0a1712">一貫性</text>
+                            <text x="280" y="501" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#666e6b">Consistency</text>
+                        </g>
+                        <!-- 05 lower left -->
+                        <g>
+                            <circle cx="134.5" cy="344" r="30" fill="#ffffff" stroke="#009944" stroke-width="2.5"/>
+                            <text x="134.5" y="349" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="700" fill="#00853C">05</text>
+                            <text x="90" y="370" text-anchor="end" font-family="Inter, Hiragino Sans, sans-serif" font-size="14" font-weight="700" fill="#0a1712">アクセシビリティ</text>
+                            <text x="90" y="385" text-anchor="end" font-family="monospace" font-size="9.5" fill="#666e6b">Accessibility</text>
+                        </g>
+                        <!-- 06 upper left -->
+                        <g>
+                            <circle cx="134.5" cy="176" r="30" fill="#ffffff" stroke="#009944" stroke-width="2.5"/>
+                            <text x="134.5" y="181" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="700" fill="#00853C">06</text>
+                            <text x="90" y="150" text-anchor="end" font-family="Inter, Hiragino Sans, sans-serif" font-size="14" font-weight="700" fill="#0a1712">段階的に育てる</text>
+                            <text x="90" y="165" text-anchor="end" font-family="monospace" font-size="9.5" fill="#666e6b">Built to grow</text>
+                        </g>
+                    </svg>
+                    <figcaption>番号は、原則同士がぶつかったときの優先順位です。迷ったら小さい番号を取ります。</figcaption>
+                </figure>
+                <div class="overview-copy">
+                    <p class="lede-strong">NQrepoが扱うのは、点検や日報といった<strong>「あとから誰かが確認する記録」</strong>です。記録は現場で生まれ、確認・承認を経て、事務所で束ねられます。</p>
+                    <p>だから私たちは、まず現場で迷わせないこと、記録を正確に残すこと、その記録を誰が見ても追えることを大切にします。この3つを支えるのが、一貫性とアクセシビリティ、そして帳票が増えても崩れない、段階的に育てられる設計です。</p>
+                    <p>6つの原則は、デザインの判断に迷ったときに立ち戻る場所です。新しい画面を考えるときも、レビューで意見が分かれたときも、ここに書かれた「問い」を自分に向けてみてください。</p>
+                    <ul class="overview-list">
+                        <li><a href="#p1"><span class="no">01</span><span>現場で迷わない<span class="en">Clarity on site</span></span></a></li>
+                        <li><a href="#p2"><span class="no">02</span><span>記録は正確に<span class="en">Accuracy by design</span></span></a></li>
+                        <li><a href="#p3"><span class="no">03</span><span>誰が見ても追える<span class="en">Transparency</span></span></a></li>
+                        <li><a href="#p4"><span class="no">04</span><span>一貫性<span class="en">Consistency</span></span></a></li>
+                        <li><a href="#p5"><span class="no">05</span><span>アクセシビリティ<span class="en">Accessibility</span></span></a></li>
+                        <li><a href="#p6"><span class="no">06</span><span>段階的に育てる<span class="en">Built to grow</span></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. 6つの原則 -->
+        <section class="section-block is-alt" id="principles">
+            <div class="section-header">
+                <div class="section-number-row">
+                    <span class="section-number">02</span>
+                    <span class="section-number-label">The Six Principles</span>
+                </div>
+                <h2>NQrepoらしさ 6原則</h2>
+                <p>それぞれの原則には、自分に向ける「問い」と、日々のデザインで実践するための具体的な決まりを添えています。</p>
+            </div>
+
+            <div class="principle-list">
+
+                <!-- 01 -->
+                <article class="principle-article" id="p1">
+                    <div class="principle-copy">
+                        <div class="principle-head">
+                            <span class="principle-index">01</span>
+                            <span class="principle-en">Clarity on site</span>
+                        </div>
+                        <h3>現場で迷わせない</h3>
+                        <p class="principle-question">私たちが画面に情報を置くとき、現場で立ったまま、説明なしに読み解けるかを考えていますか？</p>
+                        <div class="principle-body">
+                            <p>点検は時間の制約がある作業です。設備の前で、手袋をしたまま、片手で iPad を持って操作しています。画面を読み解く時間も、余裕もありません。</p>
+                            <p>次にすべき操作が、説明なしに1つに見えている状態を最優先します。選択肢が多いことは親切ではなく、判断を現場に押しつけることになります。私たちが先に判断し、画面には結論だけを置きましょう。</p>
+                            <p>言葉も同じです。システムの都合で生まれた用語ではなく、現場で日常的に使われている言葉をそのまま使います。<span class="principle-close">読む前に分かる。現場で迷わせないようにしましょう。</span></p>
+                        </div>
+                        <div class="principle-practice">
+                            <span class="principle-practice-label">実践</span>
+                            <ul>
+                                <li><strong>1画面の主要アクションは1つ。</strong>並列に見える選択肢を増やさない。</li>
+                                <li><strong>ラベルは現場の言葉で、省略しない。</strong>「登録」より「点検結果を保存」。</li>
+                                <li>補足説明やヘルプが必要になったら、説明を足す前に画面の構成を疑う。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="principle-visual" aria-hidden="true">
+                        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="70" y="30" width="180" height="240" rx="18" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="86" y="50" width="148" height="176" rx="8" fill="#F7F8F7"/>
+                            <rect x="98" y="64" width="76" height="8" rx="4" fill="#C9D3CC"/>
+                            <rect x="98" y="82" width="120" height="6" rx="3" fill="#E4E7E4"/>
+                            <rect x="98" y="96" width="104" height="6" rx="3" fill="#E4E7E4"/>
+                            <rect x="98" y="122" width="124" height="34" rx="6" fill="#ffffff" stroke="#C9D3CC" stroke-width="1.5"/>
+                            <rect x="106" y="134" width="60" height="8" rx="4" fill="#C9D3CC"/>
+                            <rect x="98" y="176" width="124" height="38" rx="10" fill="#009944"/>
+                            <rect x="128" y="192" width="64" height="7" rx="3.5" fill="#ffffff"/>
+                            <circle cx="160" cy="248" r="8" fill="none" stroke="#0a1712" stroke-width="2.5"/>
+                            <!-- pointing hand -->
+                            <path d="M232 214 c0-10 12-10 12 0 v12 c0-8 12-8 12 0 v4 c0-8 12-8 12 0 v4 c0-8 12-8 12 0 v30 c0 16-10 24-24 24 h-10 c-10 0-16-4-22-14 l-16-26 c-4-6 4-12 10-8 l14 12 z" fill="#ffffff" stroke="#0a1712" stroke-width="2.5" stroke-linejoin="round"/>
+                            <!-- focus ring -->
+                            <circle cx="160" cy="195" r="46" fill="none" stroke="#3ED97A" stroke-width="2" stroke-dasharray="4 6"/>
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- 02 -->
+                <article class="principle-article" id="p2">
+                    <div class="principle-copy">
+                        <div class="principle-head">
+                            <span class="principle-index">02</span>
+                            <span class="principle-en">Accuracy by design</span>
+                        </div>
+                        <h3>記録は正確に</h3>
+                        <p class="principle-question">私たちが入力を求めるとき、間違えない仕組みではなく、注意書きに頼っていませんか？</p>
+                        <div class="principle-body">
+                            <p>記録は、その場で使い終わるものではありません。あとで確認者が見て、承認者が判断し、必要なら何年も先に見返されます。入力の1つの誤りが、後工程のすべてに影響します。</p>
+                            <p>入力ミスを「注意」で防ぐのではなく、「構造」で防ぎます。取りうる値が決まっているなら自由入力にはしません。単位や範囲が決まっているなら、入力する前から画面上に見せます。間違えたときは、その場で、その隣で伝えます。</p>
+                            <p>正確さを利用者の注意力に委ねない。<span class="principle-close">仕組みで正確に。記録は正確に残しましょう。</span></p>
+                        </div>
+                        <div class="principle-practice">
+                            <span class="principle-practice-label">実践</span>
+                            <ul>
+                                <li><strong>必須・単位・入力範囲を常に画面上に出す。</strong>プレースホルダーだけに頼らない。</li>
+                                <li><strong>取りうる値が決まっているなら選択式にする。</strong>ラジオ・セレクト・チェックボックスを使う。</li>
+                                <li>エラーは入力箇所の隣で伝える。画面上部にまとめて出さない。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="principle-visual" aria-hidden="true">
+                        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- label -->
+                            <rect x="40" y="70" width="70" height="9" rx="4.5" fill="#0a1712"/>
+                            <rect x="116" y="68" width="30" height="13" rx="6.5" fill="#FDECEC"/>
+                            <rect x="123" y="73" width="16" height="3" rx="1.5" fill="#C22C2C"/>
+                            <!-- input -->
+                            <rect x="40" y="92" width="240" height="56" rx="10" fill="#ffffff" stroke="#009944" stroke-width="2.5"/>
+                            <text x="60" y="130" font-family="Inter, sans-serif" font-size="26" font-weight="700" fill="#0a1712">24.5</text>
+                            <rect x="212" y="106" width="52" height="28" rx="6" fill="#F7F8F7" stroke="#E4E7E4"/>
+                            <text x="238" y="125" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#666e6b">℃</text>
+                            <!-- range hint -->
+                            <rect x="40" y="160" width="128" height="7" rx="3.5" fill="#C9D3CC"/>
+                            <!-- check -->
+                            <circle cx="262" cy="70" r="22" fill="#009944"/>
+                            <path d="M251 70 l8 8 l14 -16" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- second field: select -->
+                            <rect x="40" y="196" width="240" height="48" rx="10" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="58" y="216" width="90" height="8" rx="4" fill="#0a1712"/>
+                            <path d="M250 214 l8 8 l8 -8" fill="none" stroke="#0a1712" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- options chips -->
+                            <rect x="40" y="256" width="52" height="20" rx="10" fill="#DDF3E7"/>
+                            <rect x="98" y="256" width="52" height="20" rx="10" fill="#DDF3E7"/>
+                            <rect x="156" y="256" width="52" height="20" rx="10" fill="#DDF3E7"/>
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- 03 -->
+                <article class="principle-article" id="p3">
+                    <div class="principle-copy">
+                        <div class="principle-head">
+                            <span class="principle-index">03</span>
+                            <span class="principle-en">Transparency</span>
+                        </div>
+                        <h3>誰が見ても追える</h3>
+                        <p class="principle-question">私たちが記録を見せるとき、いまどの状態で、誰の手元にあるのかが、開いた瞬間に分かりますか？</p>
+                        <div class="principle-body">
+                            <p>1つの記録に、実施者・確認者・承認者・管理者という立場の違う4つのロールが順番に触れます。バトンがいまどこにあるのかが見えないと、確認は止まり、差し戻しの理由は伝わらず、現場と事務所の間に「聞かないと分からないこと」が生まれます。</p>
+                            <p>記録がいまどの状態にあり、誰の手元にあるのか。何が起きて、なぜそうなったのか。状態は必ず目に見える形で表し、判断には理由を添えます。</p>
+                            <p>説明しなくても、開けば分かる。<span class="principle-close">誰が見ても追えるようにしましょう。</span></p>
+                        </div>
+                        <div class="principle-practice">
+                            <span class="principle-practice-label">実践</span>
+                            <ul>
+                                <li><strong>状態はステータスタグで統一する。</strong>色・語彙・位置を App と Admin で揃える。</li>
+                                <li><strong>差し戻しは理由とセットで表示する。</strong>「差し戻し」だけで終わらせない。</li>
+                                <li>いつ・誰が・何をしたかを、時系列でたどれるようにする。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="principle-visual" aria-hidden="true">
+                        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- flow line -->
+                            <path d="M52 150 H268" stroke="#C9D3CC" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M52 150 H196" stroke="#009944" stroke-width="3" stroke-linecap="round"/>
+                            <!-- nodes -->
+                            <circle cx="52" cy="150" r="14" fill="#009944"/>
+                            <path d="M46 150 l4 4 l8 -9" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="124" cy="150" r="14" fill="#009944"/>
+                            <path d="M118 150 l4 4 l8 -9" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="196" cy="150" r="20" fill="#ffffff" stroke="#009944" stroke-width="3"/>
+                            <circle cx="196" cy="150" r="7" fill="#009944"/>
+                            <circle cx="268" cy="150" r="14" fill="#ffffff" stroke="#C9D3CC" stroke-width="3"/>
+                            <!-- labels -->
+                            <rect x="30" y="178" width="44" height="7" rx="3.5" fill="#666e6b"/>
+                            <rect x="102" y="178" width="44" height="7" rx="3.5" fill="#666e6b"/>
+                            <rect x="174" y="184" width="44" height="7" rx="3.5" fill="#0a1712"/>
+                            <rect x="246" y="178" width="44" height="7" rx="3.5" fill="#C9D3CC"/>
+                            <!-- status tag callout -->
+                            <path d="M196 118 V96" stroke="#0a1712" stroke-width="2"/>
+                            <rect x="136" y="56" width="120" height="40" rx="10" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="150" y="70" width="12" height="12" rx="6" fill="#009944"/>
+                            <rect x="170" y="72" width="70" height="8" rx="4" fill="#0a1712"/>
+                            <!-- reason note -->
+                            <rect x="60" y="214" width="200" height="56" rx="10" fill="#ffffff" stroke="#E4E7E4" stroke-width="2"/>
+                            <rect x="76" y="230" width="60" height="7" rx="3.5" fill="#0a1712"/>
+                            <rect x="76" y="246" width="150" height="6" rx="3" fill="#C9D3CC"/>
+                            <!-- eye -->
+                            <path d="M232 36 c14-16 34-16 48 0 c-14 16-34 16-48 0z" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <circle cx="256" cy="36" r="6" fill="#0a1712"/>
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- 04 -->
+                <article class="principle-article" id="p4">
+                    <div class="principle-copy">
+                        <div class="principle-head">
+                            <span class="principle-index">04</span>
+                            <span class="principle-en">Consistency</span>
+                        </div>
+                        <h3>同じ意味は、同じ形で</h3>
+                        <p class="principle-question">私たちが新しい見た目を作るとき、同じ意味のものが、すでに別の形で存在していませんか？</p>
+                        <div class="principle-body">
+                            <p>NQrepo は、現場の iPad アプリと事務所の管理画面、2つのプロダクトで構成されます。使う人は、日によって、役割によって、両方を行き来します。</p>
+                            <p>iPad で見た「承認済み」と管理画面で見た「承認済み」が違う色や違う言葉なら、それは新しい情報ではなく、新しい迷いです。見た目や語彙のズレは、そのまま操作の迷いになります。前提が違っても語彙と意味は共通に保ち、寸法や密度だけを環境に合わせます。</p>
+                            <p>新しく作る前に、すでにあるものを探す。<span class="principle-close">同じ意味は、同じ形で伝えましょう。</span></p>
+                        </div>
+                        <div class="principle-practice">
+                            <span class="principle-practice-label">実践</span>
+                            <ul>
+                                <li><strong>新しい見た目を作る前に、コンポーネント一覧を確認する。</strong>既存で表せないか、まず疑う。</li>
+                                <li><strong>語彙は App と Admin で揃える。</strong>同じ状態・同じ操作に、別の言葉を当てない。</li>
+                                <li>環境に合わせて変えてよいのは寸法と密度だけ。意味と構造は変えない。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="principle-visual" aria-hidden="true">
+                        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- iPad -->
+                            <rect x="28" y="60" width="118" height="168" rx="14" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="40" y="74" width="94" height="128" rx="6" fill="#F7F8F7"/>
+                            <rect x="50" y="88" width="56" height="7" rx="3.5" fill="#C9D3CC"/>
+                            <rect x="50" y="108" width="74" height="18" rx="9" fill="#DDF3E7"/>
+                            <circle cx="60" cy="117" r="4" fill="#00853C"/>
+                            <rect x="68" y="114" width="44" height="6" rx="3" fill="#00853C"/>
+                            <rect x="50" y="142" width="74" height="30" rx="8" fill="#009944"/>
+                            <rect x="66" y="154" width="42" height="6" rx="3" fill="#fff"/>
+                            <circle cx="87" cy="214" r="5" fill="none" stroke="#0a1712" stroke-width="2"/>
+                            <!-- PC -->
+                            <rect x="164" y="64" width="130" height="126" rx="10" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="174" y="74" width="110" height="94" rx="4" fill="#F7F8F7"/>
+                            <rect x="182" y="84" width="44" height="6" rx="3" fill="#C9D3CC"/>
+                            <rect x="182" y="98" width="52" height="14" rx="7" fill="#DDF3E7"/>
+                            <circle cx="190" cy="105" r="3" fill="#00853C"/>
+                            <rect x="196" y="103" width="32" height="4" rx="2" fill="#00853C"/>
+                            <rect x="182" y="120" width="96" height="5" rx="2.5" fill="#E4E7E4"/>
+                            <rect x="182" y="131" width="96" height="5" rx="2.5" fill="#E4E7E4"/>
+                            <rect x="226" y="146" width="52" height="16" rx="5" fill="#009944"/>
+                            <rect x="238" y="152" width="28" height="4" rx="2" fill="#fff"/>
+                            <rect x="210" y="190" width="38" height="12" fill="#0a1712"/>
+                            <rect x="186" y="202" width="86" height="6" rx="3" fill="#0a1712"/>
+                            <!-- equals link -->
+                            <path d="M130 118 C150 118 150 105 168 105" fill="none" stroke="#3ED97A" stroke-width="2" stroke-dasharray="4 5"/>
+                            <path d="M130 157 C150 157 150 154 210 154" fill="none" stroke="#3ED97A" stroke-width="2" stroke-dasharray="4 5"/>
+                            <!-- = badge -->
+                            <circle cx="160" cy="250" r="22" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="150" y="243" width="20" height="4" rx="2" fill="#0a1712"/>
+                            <rect x="150" y="253" width="20" height="4" rx="2" fill="#0a1712"/>
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- 05 -->
+                <article class="principle-article" id="p5">
+                    <div class="principle-copy">
+                        <div class="principle-head">
+                            <span class="principle-index">05</span>
+                            <span class="principle-en">Accessibility</span>
+                        </div>
+                        <h3>だれの環境でも読める</h3>
+                        <p class="principle-question">私たちが色や大きさを決めるとき、明るい屋外や、手袋をした手や、見え方の違う人のことまで考えていますか？</p>
+                        <div class="principle-body">
+                            <p>作業環境も、使う人の見え方も一定ではありません。屋外の直射日光の下、薄暗い設備室、水滴のついた画面。年齢や視力、色の見え方も人それぞれです。</p>
+                            <p>色だけに頼らず、十分な文字サイズとコントラストで伝えます。指先で正確に押せる大きさを確保します。「普通の環境で、普通に見える人」を基準にしない。もっとも厳しい現場でも読めることを、最低ラインにします。</p>
+                            <p>アクセシビリティは特別な配慮ではなく、現場で使えるための前提です。<span class="principle-close">だれの環境でも読めるようにしましょう。</span></p>
+                        </div>
+                        <div class="principle-practice">
+                            <span class="principle-practice-label">実践</span>
+                            <ul>
+                                <li><strong>本文のコントラストは 4.5:1 以上、UI の枠線は 3:1 以上。</strong>カラーページの値を使う。</li>
+                                <li><strong>タップ領域は 44&times;44px 以上。</strong>iPad では余白を広く取る。</li>
+                                <li>色だけで状態を伝えない。アイコンや文言を必ず添える。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="principle-visual" aria-hidden="true">
+                        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- sun -->
+                            <circle cx="66" cy="62" r="20" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <g stroke="#0a1712" stroke-width="2.5" stroke-linecap="round">
+                                <path d="M66 26 V34"/><path d="M66 90 V98"/><path d="M30 62 H38"/><path d="M94 62 H102"/>
+                                <path d="M40 36 l6 6"/><path d="M86 82 l6 6"/><path d="M92 36 l-6 6"/><path d="M46 82 l-6 6"/>
+                            </g>
+                            <!-- contrast swatch -->
+                            <rect x="124" y="40" width="160" height="60" rx="12" fill="#0a1712"/>
+                            <text x="204" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="800" fill="#ffffff">4.5 : 1</text>
+                            <!-- tap target -->
+                            <rect x="52" y="132" width="96" height="96" rx="16" fill="#009944"/>
+                            <rect x="82" y="176" width="36" height="8" rx="4" fill="#fff"/>
+                            <path d="M52 132 H68 M52 132 V148 M148 132 H132 M148 132 V148 M52 228 H68 M52 228 V212 M148 228 H132 M148 228 V212" stroke="#0a1712" stroke-width="2.5" stroke-linecap="round" fill="none" transform="translate(0 0)"/>
+                            <text x="100" y="256" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#0a1712">44 × 44</text>
+                            <!-- status: icon + text, not color only -->
+                            <rect x="176" y="136" width="112" height="36" rx="18" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <circle cx="196" cy="154" r="8" fill="#009944"/>
+                            <path d="M192 154 l3 3 l6 -7" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="212" y="150" width="60" height="8" rx="4" fill="#0a1712"/>
+                            <rect x="176" y="186" width="112" height="36" rx="18" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <circle cx="196" cy="204" r="8" fill="#C22C2C"/>
+                            <path d="M196 199 V205 M196 208.5 V209" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                            <rect x="212" y="200" width="60" height="8" rx="4" fill="#0a1712"/>
+                            <!-- glove hand hint -->
+                            <g transform="translate(0 -36)"><path d="M232 268 c0-8 10-8 10 0 v-14 c0-8 10-8 10 0 v10 c0-8 10-8 10 0 v6 c0-8 10-8 10 0 v20 c0 10-8 16-18 16 h-8 c-8 0-12-4-16-10 l-10-16 c-3-5 3-9 7-6 l5 4z" fill="#ffffff" stroke="#0a1712" stroke-width="2.5" stroke-linejoin="round"/></g>
+                        </svg>
+                    </div>
+                </article>
+
+                <!-- 06 -->
+                <article class="principle-article" id="p6">
+                    <div class="principle-copy">
+                        <div class="principle-head">
+                            <span class="principle-index">06</span>
+                            <span class="principle-en">Built to grow</span>
+                        </div>
+                        <h3>段階的に育てる</h3>
+                        <p class="principle-question">私たちがひとつの帳票に合わせて作り込むとき、次の帳票が増えても、同じ形で受け止められますか？</p>
+                        <div class="principle-body">
+                            <p>NQrepo が扱う帳票は、これからも段階的に増えていきます。工場ごと、設備ごと、季節ごと。今日きれいに収まる画面が、来月の帳票では破綻するかもしれません。</p>
+                            <p>個別の帳票に合わせた作り込みではなく、追加に耐える共通部品として設計します。帳票を「入力フィールドとリストアイテムの組み合わせ」として捉えれば、新しい帳票は新しい画面ではなく、新しい組み合わせになります。</p>
+                            <p>今ある1つのために作らず、これから来る100のために作る。<span class="principle-close">段階的に育てましょう。</span></p>
+                        </div>
+                        <div class="principle-practice">
+                            <span class="principle-practice-label">実践</span>
+                            <ul>
+                                <li><strong>帳票固有の表現は避け、入力フィールドとリストアイテムの組み合わせで表す。</strong></li>
+                                <li><strong>例外を作るときは、コンポーネントとして戻す。</strong>1画面だけの特別な部品を残さない。</li>
+                                <li>「この帳票が10倍になったら」を想像して、一覧・検索・絞り込みの余地を残す。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="principle-visual" aria-hidden="true">
+                        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- base blocks -->
+                            <rect x="44" y="196" width="232" height="44" rx="10" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="60" y="212" width="40" height="12" rx="4" fill="#009944"/>
+                            <rect x="108" y="214" width="120" height="8" rx="4" fill="#C9D3CC"/>
+                            <rect x="44" y="140" width="232" height="44" rx="10" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="60" y="156" width="40" height="12" rx="4" fill="#009944"/>
+                            <rect x="108" y="158" width="90" height="8" rx="4" fill="#C9D3CC"/>
+                            <rect x="44" y="84" width="232" height="44" rx="10" fill="#ffffff" stroke="#0a1712" stroke-width="2.5"/>
+                            <rect x="60" y="100" width="40" height="12" rx="4" fill="#009944"/>
+                            <rect x="108" y="102" width="140" height="8" rx="4" fill="#C9D3CC"/>
+                            <!-- new block being added -->
+                            <rect x="44" y="28" width="232" height="44" rx="10" fill="#F2FAF5" stroke="#009944" stroke-width="2.5" stroke-dasharray="6 6"/>
+                            <circle cx="160" cy="50" r="12" fill="#009944"/>
+                            <path d="M160 43 V57 M153 50 H167" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- growth arrow -->
+                            <path d="M296 240 V44" stroke="#3ED97A" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 6"/>
+                            <path d="M288 54 l8 -12 l8 12" fill="none" stroke="#3ED97A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- sprout -->
+                            <path d="M22 240 c0-24 10-40 26-46" fill="none" stroke="#0a1712" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M48 194 c14 0 20-12 16-22 c-14 0-20 12-16 22z" fill="#009944" stroke="#0a1712" stroke-width="2.5" stroke-linejoin="round"/>
+                            <path d="M36 214 c-12-2-16-14-10-22 c12 2 16 14 10 22z" fill="#3ED97A" stroke="#0a1712" stroke-width="2.5" stroke-linejoin="round"/>
+                            <path d="M8 262 H310" stroke="#0a1712" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 03. 原則の使い方 -->
+        <section class="section-block" id="usage">
+            <div class="section-header">
+                <div class="section-number-row">
+                    <span class="section-number">03</span>
+                    <span class="section-number-label">How to Use</span>
+                </div>
+                <h2>原則の使い方</h2>
+                <p>原則は読んで終わりにするものではなく、日々の判断の中で使う道具です。3つの場面での使い方をまとめます。</p>
+            </div>
+            <div class="usage-grid">
+                <div class="usage-card">
+                    <div class="usage-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
+                    <h4>デザインするとき</h4>
+                    <p>画面を作り始める前に、その画面を使うロールと環境を確かめます。作りながら、6つの「問い」を順に自分に向けてください。</p>
+                    <ol class="usage-steps">
+                        <li>誰が、どのデバイスで、どんな状況で使うかを書き出す</li>
+                        <li>既存のコンポーネントで表せないかを先に確認する</li>
+                        <li>6つの問いに 1 つずつ答えられるかを確かめる</li>
+                    </ol>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></div>
+                    <h4>レビューするとき</h4>
+                    <p>好みではなく原則で話します。「気になる」ではなく「原則 02 に対して、単位が画面に出ていない」のように、番号と観点を添えて伝えてください。</p>
+                    <ol class="usage-steps">
+                        <li>指摘には原則の番号を添える</li>
+                        <li>原則に照らして問題がなければ、好みの違いは通す</li>
+                        <li>原則に書かれていない判断が出たら、原則の更新を検討する</li>
+                    </ol>
+                </div>
+                <div class="usage-card">
+                    <div class="usage-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg></div>
+                    <h4>原則同士がぶつかったとき</h4>
+                    <p>たとえば「一貫性」を守ると「現場で迷わせない」に反する場合があります。そのときは<strong>番号の小さい原則を優先</strong>し、なぜそうしたかを記録に残します。</p>
+                    <ol class="usage-steps">
+                        <li>ぶつかっている原則を 2 つ特定する</li>
+                        <li>番号の小さい方を取る</li>
+                        <li>例外として残るなら、コンポーネント一覧に注記を追加する</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="conflict-note">
+                <h4>原則は育てるもの</h4>
+                <p>この6原則は、NQrepo の今の姿から書き起こしたものです。帳票やロールが増え、現場の使われ方が変われば、原則も見直します。<strong>原則に当てはまらない判断を3回したら、原則側を疑う。</strong>それ自体が原則 06「段階的に育てる」の実践です。</p>
+            </div>
+        </section>
+
+        <!-- 04. 関連 -->
+        <section class="section-block is-alt" id="related">
+            <div class="section-header">
+                <div class="section-number-row">
+                    <span class="section-number">04</span>
+                    <span class="section-number-label">Related</span>
+                </div>
+                <h2>原則を形にするページ</h2>
+                <p>原則を具体的な色・文字・部品に落としたものが、デザインガイドの各セクションです。</p>
+            </div>
+            <div class="related-grid">
+                <a class="related-card" href="nqrepo-design-guide-cute.html#brand">
+                    <h4>ブランド</h4>
+                    <p>デザインの前提、利用者とロール、2つのプロダクトの性格。原則が生まれた背景です。</p>
+                    <span class="card-link">ブランドを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span>
+                </a>
+                <a class="related-card" href="nqrepo-design-guide-cute.html#styles">
+                    <h4>スタイル</h4>
+                    <p>カラー、タイポグラフィ、エレベーション。原則 05「アクセシビリティ」の数値はここで定義しています。</p>
+                    <span class="card-link">スタイルを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span>
+                </a>
+                <a class="related-card" href="nqrepo-design-guide-cute.html#components">
+                    <h4>コンポーネント</h4>
+                    <p>App + Admin 共通、App のみ、Admin のみ。原則 04「一貫性」と 06「段階的に育てる」を支える部品一覧です。</p>
+                    <span class="card-link">コンポーネントを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NQrepo</h4>
+                <ul>
+                    <li><a href="nqrepo-design-guide-cute.html#about">貢献する</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html">リリースノート</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>スタイル</h4>
+                <ul>
+                    <li><a href="nqrepo-design-guide-cute.html#colors">カラー</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html#typography">タイポグラフィ</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html">アイコン</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>コンポーネント</h4>
+                <ul>
+                    <li><a href="nqrepo-design-guide-cute.html">ボタン</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html">フォーム</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html">カード</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>リソース</h4>
+                <ul>
+                    <li><a href="nqrepo-design-guide-cute.html">Figmaファイル</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html">GitHub</a></li>
+                    <li><a href="nqrepo-design-guide-cute.html">サポート</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 NQrepo Design System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

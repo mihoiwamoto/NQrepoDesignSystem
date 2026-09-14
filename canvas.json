@@ -1,0 +1,12 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 880, "h": 560 },
+    { "file": "Colors.dc.html", "x": 960, "y": 0, "w": 1000, "h": 720 },
+    { "file": "Components.dc.html", "x": 0, "y": 640, "w": 1000, "h": 840 },
+    { "file": "Typography.dc.html", "x": 1080, "y": 640, "w": 880, "h": 780 }
+  ],
+  "annotations": [
+    { "id": "note-overview", "x": -200, "y": -100, "w": 180, "text": "NQrepo Design System\n\nカラー・コンポーネント・タイポグラフィを統一したデザインシステム" }
+  ],
+  "launch": { "view": "canvas" }
+}

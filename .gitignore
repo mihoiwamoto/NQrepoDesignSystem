@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Local tool state
+.claude/
+.vercel/
+
+# Backup snapshots of the guide (not for publishing)
+*.backup-*.html

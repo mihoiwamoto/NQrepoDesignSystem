@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; background: #ffffff; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+<div style="padding: 40px; max-width: 1000px;">
+  <h1 style="font-size: 32px; font-weight: 700; margin: 0 0 8px 0; color: #1a1a1a;">コンポーネント</h1>
+  <p style="color: #666666; margin: 0 0 32px 0; font-size: 14px;">NQrepoで使用される基本コンポーネント</p>
+
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
+    <!-- Buttons -->
+    <div>
+      <h3 style="font-size: 14px; font-weight: 600; margin: 0 0 16px 0; color: #1a1a1a;">Button</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <button style="background: #00853C; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">Primary Button</button>
+        <button style="background: transparent; color: #00853C; border: 2px solid #00853C; padding: 10px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">Secondary Button</button>
+        <button style="background: #f8f9fa; color: #1a1a1a; border: 1px solid #e0e0e0; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;">Tertiary Button</button>
+        <button style="background: #f8f9fa; color: #1a1a1a; border: 1px solid #e0e0e0; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; opacity: 0.5;">Disabled Button</button>
+      </div>
+    </div>
+
+    <!-- Input Fields -->
+    <div>
+      <h3 style="font-size: 14px; font-weight: 600; margin: 0 0 16px 0; color: #1a1a1a;">Input</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="text" placeholder="Placeholder text" style="padding: 10px 12px; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 14px; font-family: inherit;">
+        <input type="text" value="Active state" style="padding: 10px 12px; border: 2px solid #00853C; border-radius: 4px; font-size: 14px; font-family: inherit;">
+        <input type="text" placeholder="Disabled" disabled style="padding: 10px 12px; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 14px; font-family: inherit; background: #f8f9fa; opacity: 0.5;">
+      </div>
+    </div>
+
+    <!-- Checkbox & Radio -->
+    <div>
+      <h3 style="font-size: 14px; font-weight: 600; margin: 0 0 16px 0; color: #1a1a1a;">Checkbox</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; cursor: pointer; accent-color: #00853C;">
+          <span style="font-size: 14px; color: #1a1a1a;">Checkbox option</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" checked style="width: 18px; height: 18px; cursor: pointer; accent-color: #00853C;">
+          <span style="font-size: 14px; color: #1a1a1a;">Checked option</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Radio Buttons -->
+    <div>
+      <h3 style="font-size: 14px; font-weight: 600; margin: 0 0 16px 0; color: #1a1a1a;">Radio</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="radio" name="demo" style="width: 18px; height: 18px; cursor: pointer; accent-color: #00853C;">
+          <span style="font-size: 14px; color: #1a1a1a;">Option A</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="radio" name="demo" checked style="width: 18px; height: 18px; cursor: pointer; accent-color: #00853C;">
+          <span style="font-size: 14px; color: #1a1a1a;">Option B</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div>
+      <h3 style="font-size: 14px; font-weight: 600; margin: 0 0 16px 0; color: #1a1a1a;">Card</h3>
+      <div style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px;">
+        <h4 style="font-size: 14px; font-weight: 600; margin: 0 0 8px 0; color: #1a1a1a;">Card Title</h4>
+        <p style="font-size: 12px; color: #666666; margin: 0;">This is a card component with a subtle shadow and border.</p>
+      </div>
+    </div>
+
+    <!-- Badge -->
+    <div>
+      <h3 style="font-size: 14px; font-weight: 600; margin: 0 0 16px 0; color: #1a1a1a;">Badge</h3>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="display: inline-block; background: #DDF3E7; color: #00853C; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 500; width: fit-content;">Success</span>
+        <span style="display: inline-block; background: #EDF5FF; color: #3F8DE0; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 500; width: fit-content;">Info</span>
+        <span style="display: inline-block; background: #FFF4E6; color: #E09A2F; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 500; width: fit-content;">Warning</span>
+        <span style="display: inline-block; background: #FEECEC; color: #E13F3F; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 500; width: fit-content;">Error</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
