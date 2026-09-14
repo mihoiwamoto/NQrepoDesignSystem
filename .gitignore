@@ -7,3 +7,4 @@
 
 # Backup snapshots of the guide (not for publishing)
 *.backup-*.html
+.vercel
