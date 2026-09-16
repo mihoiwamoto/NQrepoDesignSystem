@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンポーネント - NQrepo Design System</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="data:image/png;base64,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">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="assets/nqrepo-guide.css">
+    <link rel="stylesheet" href="assets/nqrepo-doc.css">
+    <link rel="stylesheet" href="assets/nqrepo-components.css">
+</head>
+<body class="doc-page">
+<svg class="nqi-defs" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="nqi-color" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="9" cy="9" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="9.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="9.5" cy="15" r="1.3" fill="currentColor" stroke="none"/><circle cx="14.5" cy="14.5" r="1.3" fill="currentColor" stroke="none"/></symbol><symbol id="nqi-typography" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2"/><path d="M12 5v14"/><path d="M8.5 19h7"/></symbol><symbol id="nqi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="7.5" r="3.2"/><rect x="13.5" y="4.3" width="6.4" height="6.4" rx="1.4"/><path d="M7.5 13.6l4 6.8h-8z"/><path d="M13.5 17h6.4"/></symbol><symbol id="nqi-elevation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l8.6 4.6L12 12.4 3.4 7.8z"/><path d="M3.4 12.6L12 17.2l8.6-4.6"/><path d="M3.4 17.2L12 21.8l8.6-4.6"/></symbol><symbol id="nqi-button" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="8" width="18.4" height="8" rx="4"/><path d="M8 12h8"/></symbol><symbol id="nqi-input" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="6.8" width="18.4" height="10.4" rx="2.2"/><path d="M7 9.8v4.4"/><path d="M10 12h6"/></symbol><symbol id="nqi-inputdate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="6.8" width="18.4" height="10.4" rx="2.2"/><rect x="13.6" y="9.2" width="5.4" height="5.6" rx="1.2"/><path d="M13.6 11.1h5.4"/><path d="M6 12h4"/></symbol><symbol id="nqi-select" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="6.8" width="18.4" height="10.4" rx="2.2"/><path d="M14.4 10.8l2.2 2.2 2.2-2.2"/><path d="M6 12h5"/></symbol><symbol id="nqi-statustag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 13.2l-7.6-7.6H5.2v7.6l7.6 7.6a1.9 1.9 0 0 0 2.7 0l4.9-4.9a1.9 1.9 0 0 0 0-2.7z"/><circle cx="9" cy="9" r="1.4"/></symbol><symbol id="nqi-dialog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.6" width="18.4" height="14.8" rx="2.2"/><path d="M2.8 9h18.4"/><path d="M12.6 15.4h5.6"/></symbol><symbol id="nqi-navigation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.2" width="18.4" height="15.6" rx="2.2"/><path d="M2.8 8.6h18.4"/><path d="M8.6 8.6v11.2"/></symbol><symbol id="nqi-checkbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="3.2"/><path d="M7.8 12.4l2.9 2.9 5.5-6"/></symbol><symbol id="nqi-listitem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.4" cy="7" r="1.4" fill="currentColor" stroke="none"/><circle cx="4.4" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="4.4" cy="17" r="1.4" fill="currentColor" stroke="none"/><path d="M8.6 7h11"/><path d="M8.6 12h11"/><path d="M8.6 17h7"/></symbol><symbol id="nqi-inspectionstatus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.4H6.6a1.8 1.8 0 0 0-1.8 1.8v13a1.8 1.8 0 0 0 1.8 1.8h10.8a1.8 1.8 0 0 0 1.8-1.8v-13a1.8 1.8 0 0 0-1.8-1.8H15"/><rect x="9" y="2.6" width="6" height="3.6" rx="1.1"/><path d="M9.2 13.2l2.2 2.2 4.2-4.4"/></symbol><symbol id="nqi-tablerow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.8" width="18.4" height="14.4" rx="2.2"/><path d="M2.8 9.6h18.4"/><path d="M2.8 14.4h18.4"/><path d="M9.2 9.6v9.6"/></symbol><symbol id="nqi-filtersearch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 5.2h16.8l-6.6 7.6v6.2l-3.6-2.2v-4z"/></symbol><symbol id="nqi-pagination" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="8.6" width="6.4" height="6.8" rx="1"/><rect x="10.6" y="8.6" width="6.4" height="6.8" rx="1"/><path d="M19.6 9.6l2.2 2.4-2.2 2.4"/></symbol><symbol id="nqi-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.4" width="18.4" height="15.2" rx="2.2"/><path d="M2.8 10.4h18.4"/><path d="M6.6 14h7.6"/></symbol><symbol id="nqi-radiobutton" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.6" fill="currentColor" stroke="none"/></symbol><symbol id="nqi-textarea" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.8" width="18.4" height="14.4" rx="2.2"/><path d="M6.6 9h10.8"/><path d="M6.6 12.4h10.8"/><path d="M6.6 15.8h5.6"/></symbol><symbol id="nqi-dropdown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="3.4" width="18.4" height="5.2" rx="1.8"/><path d="M16.4 5.4l1.6 1.6 1.6-1.6"/><rect x="2.8" y="11" width="18.4" height="9.6" rx="1.8"/><path d="M6.6 14.4h10.8"/><path d="M6.6 17.4h6.8"/></symbol><symbol id="nqi-accordion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="3.6" width="18.4" height="5" rx="1.6"/><path d="M16.6 5.5l1.5 1.5 1.5-1.5"/><rect x="2.8" y="10.4" width="18.4" height="5" rx="1.6"/><rect x="2.8" y="17.2" width="18.4" height="3.4" rx="1.6"/></symbol><symbol id="nqi-tab" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.4V6.4a1.6 1.6 0 0 1 1.6-1.6h5a1.6 1.6 0 0 1 1.6 1.6v3"/><rect x="2.8" y="9.4" width="18.4" height="10.4" rx="2"/></symbol><symbol id="nqi-breadcrumb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="3.8" cy="12" r="1.9" fill="currentColor" stroke="none"/><path d="M7.8 8.8l3.2 3.2-3.2 3.2"/><circle cx="14.4" cy="12" r="1.9" fill="currentColor" stroke="none"/><path d="M18.4 8.8l3.2 3.2-3.2 3.2"/></symbol><symbol id="nqi-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="5" width="18.4" height="15.4" rx="2.2"/><path d="M2.8 10h18.4"/><path d="M7.6 3v4"/><path d="M16.4 3v4"/></symbol><symbol id="nqi-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l9.2 16H2.8z"/><path d="M12 10v4.4"/><circle cx="12" cy="17.4" r="1.05" fill="currentColor" stroke="none"/></symbol><symbol id="nqi-toast" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.4" y="8" width="19.2" height="8.4" rx="3.4"/><circle cx="7.4" cy="12.2" r="1.5" fill="currentColor" stroke="none"/><path d="M11 12.2h6.6"/></symbol><symbol id="nqi-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 11.2a8.4 8.4 0 1 1-7.4-7.4"/><circle cx="18.4" cy="5.6" r="2.9" fill="currentColor" stroke="none"/></symbol><symbol id="nqi-authoritytag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.4 3v6.1c0 4.6-3.1 8.2-7.4 9.2-4.3-1-7.4-4.6-7.4-9.2V6z"/><path d="M9.2 12.2l2 2 3.6-3.9"/></symbol></defs></svg>
+    <header>
+        <nav>
+            <a href="nqrepo-design-guide.html" class="logo"><img class="logo-mark" src="data:image/png;base64,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" alt="" aria-hidden="true" width="192" height="207" decoding="async">NQrepo Design System</a>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="nqrepo-design-brand.html">ブランド</a></li>
+                    <li><a href="nqrepo-design-principles.html">原則</a></li>
+                    <li><a href="nqrepo-design-styles.html">スタイル</a></li>
+                    <li><a class="is-current" aria-current="page" href="nqrepo-design-components.html">コンポーネント</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="doc-sidebar" aria-label="このページの目次">
+            <ul class="doc-nav">
+                <li class="doc-nav-group">
+                    <a href="#components">コンポーネント</a>
+                    <ul class="doc-nav-sub">
+                        <li><a href="#foundations">基本要素</a></li>
+                        <li><a href="#by-scope">スコープ別コンポーネント</a></li>
+                        <li><a href="#conventions">命名とバリアントの考え方</a></li>
+                        <li><a href="#how-to-use">使うときの手順</a></li>
+                        <li><a href="#lib-gaps">未定義のコンポーネント</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <article class="doc-main">
+        <!-- Section 3: Components -->
+        <section class="section-block" id="components" data-lib-root>
+            <div class="doc-title">
+                <h1>コンポーネント</h1>
+                <p class="doc-eyebrow">Components</p>
+            </div>
+            <p class="doc-tagline">コンポーネントライブラリ</p>
+            <p class="doc-lead">Figma「NQrepo UI Kit」に定義された UI 部品の全体像です。どのプロダクトで使えるか（スコープ）を軸に整理しています。</p>
+
+            <div class="lib-lead-grid">
+                <div>
+                    <p>NQrepo は <strong>App（記録を作る iPad アプリ）</strong>と <strong>Admin（記録を束ねて判断・運用する管理画面）</strong>の 2 つのプロダクトで構成されています。同じ「入力フィールド」でも、立ったままタッチで操作する App と、マウス・キーボードで一覧を扱う Admin では、最適な寸法・密度・状態表現が異なります。そのためライブラリは<strong>「共通 / App のみ / Admin のみ」の 3 スコープ</strong>に分けて管理しています。</p>
+                    <p>新しい画面をつくるときは、まずこの一覧で<strong>既存のコンポーネントで解決できないかを確認</strong>してください。各カードをクリックすると、上の「コンポーネント一覧」の該当パネルが開き、バリアント・状態・使い分けの詳細を確認できます。ここに無いものが必要になった場合は、独自に作らず<a href="#lib-gaps">未定義コンポーネント</a>の運用に沿って提案してください。</p>
+                </div>
+                <div class="lib-source">
+                    <dl>
+                        <dt>ソース</dt>
+                        <dd>Figma「NQrepo UI Kit」<span>デザインの正はつねに Figma 側です。実装と差異がある場合は Figma を優先します。</span></dd>
+                        <dt>スコープ</dt>
+                        <dd>App + Admin 共通 / App のみ / Admin のみ<span>スコープ外での流用は、寸法・タップ領域が前提から外れるため避けてください。</span></dd>
+                        <dt>更新</dt>
+                        <dd>Figma 更新 → 本ガイド反映<span>コンポーネントの追加・変更は、必ず Figma の定義更新とセットで行います。</span></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="lib-stats">
+                <div class="lib-stat">
+                    <div class="lib-stat-num">24<small>群</small></div>
+                    <div class="lib-stat-label">Components</div>
+                    <p class="lib-stat-sub">用途ごとに束ねたコンポーネント群の数</p>
+                </div>
+                <div class="lib-stat">
+                    <div class="lib-stat-num">6<small>群</small></div>
+                    <div class="lib-stat-label">App + Admin</div>
+                    <p class="lib-stat-sub">両プロダクトで共通して使える基本部品</p>
+                </div>
+                <div class="lib-stat">
+                    <div class="lib-stat-num">3<small>群</small></div>
+                    <div class="lib-stat-label">App only</div>
+                    <p class="lib-stat-sub">検査フロー特有の入力・表示に特化</p>
+                </div>
+                <div class="lib-stat">
+                    <div class="lib-stat-num">15<small>群</small></div>
+                    <div class="lib-stat-label">Admin only</div>
+                    <p class="lib-stat-sub">一覧・絞り込み・大量データ操作向け</p>
+                </div>
+            </div>
+
+
+            <div class="lib-filter">
+                <div class="lib-filter-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+                    <label class="visually-hidden" for="libSearch">コンポーネントを絞り込む</label>
+                    <input id="libSearch" type="search" data-lib-search placeholder="名前・用途で絞り込む（例：提出、一覧、通知）" autocomplete="off">
+                    <button type="button" class="lib-filter-clear" data-lib-clear aria-label="検索条件をクリア">&times;</button>
+                </div>
+                <div class="lib-chips" role="group" aria-label="スコープで絞り込む">
+                    <button type="button" class="lib-chip" data-lib-scope="all" aria-pressed="true">すべて<span>29</span></button>
+                    <button type="button" class="lib-chip" data-lib-scope="foundation" aria-pressed="false">基本要素<span>5</span></button>
+                    <button type="button" class="lib-chip" data-lib-scope="common" aria-pressed="false">App + Admin<span>6</span></button>
+                    <button type="button" class="lib-chip" data-lib-scope="app" aria-pressed="false">App のみ<span>3</span></button>
+                    <button type="button" class="lib-chip" data-lib-scope="admin" aria-pressed="false">Admin のみ<span>15</span></button>
+                </div>
+                <p class="lib-filter-status" data-lib-status role="status">29 件すべてを表示中</p>
+            </div>
+
+            <div data-lib-group>
+            <div class="lib-section-label doc-section" id="foundations">
+                <h2>基本要素</h2>
+                <span>Foundations</span>
+            </div>
+            <p class="lib-section-note">個別のコンポーネントより先に決まる、すべての部品が参照する土台です。ここを変えるとライブラリ全体に波及します。</p>
+            <div class="lib-scope">
+                <div class="lib-items">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-color" data-scope="foundation" data-kw="color color colour 配色 トークン contrast">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row"><span class="p-sw" style="background:#DDF3E7"></span><span class="p-sw" style="background:#A9E3C4"></span><span class="p-sw" style="background:#4FC183"></span><span class="p-sw" style="background:#009944"></span><span class="p-sw" style="background:#00632C"></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-color"></use></svg><span class="lib-item-name">カラー</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Color</span>
+                        <p class="lib-item-desc">8 つのカラーファミリー × 50〜900 の 10 段階。コントラスト比の基準とあわせて定義。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>意味のある色づけが必要なとき。状態・強調・下地の判断</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>定義外の中間色をその場で作る。装飾目的で色を増やす</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">8 families</span><span class="lib-tag">10 shades</span><span class="lib-tag">WCAG</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-typography" data-scope="foundation" data-kw="typography typography font text 文字 見出し">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row" style="gap:10px"><span class="p-aa">Aa</span><span class="p-col" style="width:90px"><i class="p-bar is-dark w70"></i><i class="p-bar w100"></i><i class="p-bar w80"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-typography"></use></svg><span class="lib-item-name">タイポグラフィ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Typography</span>
+                        <p class="lib-item-desc">PC / Tablet それぞれの Heading・Body・Label トークン。アプリの文字サイズ設定と対応。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>見出し・本文・ラベルの階層を決めるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>定義外のサイズを足す。1 画面で階層を 4 段階以上に増やす</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">PC / Tablet</span><span class="lib-tag">Heading</span><span class="lib-tag">Body</span><span class="lib-tag">Label</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-icon" data-scope="foundation" data-kw="icon icon svg ピクトグラム">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-icons"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-checkbox"></use></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-calendar"></use></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-filtersearch"></use></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-alert"></use></svg></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-icon"></use></svg><span class="lib-item-name">アイコン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Icon</span>
+                        <p class="lib-item-desc">ストローク幅を統一したアイコンライブラリ。クリックで SVG コードをコピーできます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>言葉を補って意味を早く伝えるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>ラベルなしで操作を表す（テキストなしなら aria-label 必須）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">統一ストローク</span><span class="lib-tag">SVG</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-elevation" data-scope="foundation" data-kw="elevation elevation shadow 影 重なり z-index">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row p-elev" style="gap:10px"><span class="e1"></span><span class="e2"></span><span class="e3"></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-elevation"></use></svg><span class="lib-item-name">エレベーション</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Elevation</span>
+                        <p class="lib-item-desc">重なりの高さ。レベル 0 が基準で、ダイアログやメニューはより高い値を持ちます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>重なりの前後を示すとき。ダイアログ・メニュー・トースト</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>並列に並ぶカードを目立たせるために影を足す</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Level 0〜</span><span class="lib-tag">Overlay</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-button" data-scope="foundation" data-kw="button button 押す 操作 CTA solid outline">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row"><span class="p-btn is-solid">確認者に提出</span><span class="p-btn is-outline">戻る</span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-button"></use></svg><span class="lib-item-name">ボタン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Button</span>
+                        <p class="lib-item-desc">スタイル＝重要度、サイズ＝置かれる場所。Solid は 1 画面 1 つが原則です。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>押すと何かが起きる操作。画面の主操作は Solid 1 つ</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>移動するだけのリンクをボタンの形にする</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Style</span><span class="lib-tag">Size</span><span class="lib-tag">State</span><span class="lib-tag">Icon</span></div>
+                    </a>
+                </div>
+            </div>
+            </div>
+
+            <div data-lib-group>
+            <div class="lib-section-label doc-section" id="by-scope">
+                <h2>スコープ別コンポーネント</h2>
+                <span>By Scope</span>
+            </div>
+            <p class="lib-section-note">同じ名前でも App と Admin ではバリアント構成が異なります。実装前に、どちらのセットを使うのかを必ず確認してください。</p>
+
+            <details class="lib-scope" data-lib-group>
+                <summary class="lib-scope-head">
+                    <span class="lib-scope-chip"><i></i>App + Admin 共通</span>
+                    <h4>両プロダクトで使う基本部品</h4>
+                    <span class="lib-scope-count" data-lib-group-count>6 群</span>
+                    <svg class="lib-scope-toggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </summary>
+                <p class="lib-scope-desc">役割は共通ですが、バリアントはプロダクトごとに分かれています。共通だからといって、App のバリアントをそのまま Admin に持ち込まないでください。</p>
+                <div class="lib-items">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-input" data-scope="common" data-kw="input input textfield 入力 フォーム">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-label">品温</span><span class="p-field is-focus">25.4</span><i class="p-bar is-light w60"></i></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-input"></use></svg><span class="lib-item-name">入力フィールド</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Input</span>
+                        <p class="lib-item-desc">App はラベル・補足テキスト・チェックボックスの有無を切り替え。Admin は Size × State で構成。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>1 行で収まる自由入力。数値・品名・短いコメント</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>選択肢が決まっているものを自由入力にする</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Bordered</span><span class="lib-tag">Focus</span><span class="lib-tag">Error</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-input-date" data-scope="common" data-kw="inputdate date calendar 日付 期間 range">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-field">2026/09/15 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="p-field">2026/09/15 〜 09/30</span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-inputdate"></use></svg><span class="lib-item-name">日付入力</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">InputDate</span>
+                        <p class="lib-item-desc">単一日付の入力欄。Admin には期間指定用の InputDateRange も用意されています。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>日付を 1 点、または期間で指定するとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>年・月・日を 3 つの入力欄に分けて入れさせる</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Single</span><span class="lib-tag">Range（Admin）</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-select" data-scope="common" data-kw="select select dropdown 選択 プルダウン OK NG">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row"><span class="p-seg is-on">OK</span><span class="p-seg">NG</span><span class="p-seg">補修</span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-select"></use></svg><span class="lib-item-name">セレクト</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Select</span>
+                        <p class="lib-item-desc">App は検査結果を選ぶ SelectButton、Admin はプルダウン形式の SelectBox。形が大きく異なります。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>決まった選択肢から 1 つ選ぶとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>選択肢が 2 つだけのとき（チェックボックス・ラジオで足りる）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">OK / NG / Repair</span><span class="lib-tag">SelectBox</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-status-tag" data-scope="common" data-kw="statustag status tag 状態 バッジ 承認 未実施">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row p-wrap"><span class="p-tag is-gray">未実施</span><span class="p-tag is-amber">実施中</span><span class="p-tag is-green">承認済</span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-statustag"></use></svg><span class="lib-item-name">ステータスタグ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">StatusTag</span>
+                        <p class="lib-item-desc">状態を示すタグ。App は検査状態を 6 種、Admin は 3 種＋認証状態（CertificationState）を持ちます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>記録や申請がいまどの状態かを示すとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>押せそうな見た目にする。状態以外のラベルに流用する</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">App 6 種</span><span class="lib-tag">Admin 3 種</span><span class="lib-tag">Certification</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-dialog" data-scope="common" data-kw="dialog dialog modal 確認 モーダル">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-dialog"><i class="p-bar is-dark w55"></i><i class="p-bar is-light w90" style="margin-top:6px"></i><span class="p-row"><span class="p-btn is-ghost">やめる</span><span class="p-btn is-solid">削除する</span></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-dialog"></use></svg><span class="lib-item-name">ダイアログ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Dialog</span>
+                        <p class="lib-item-desc">App はボタン数・説明文・アイコンの有無で切り替え、Admin は用途別（削除・ダウンロード・承認・ログアウト・未保存）に個別定義。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>取り消しにくい操作の確認。作業を止めて選ばせるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>完了の報告だけに使う（トーストで足りる）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Modal</span><span class="lib-tag">用途別 5 種（Admin）</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-navigation" data-scope="common" data-kw="navigation navigation header sidenav bottombar 移動 現在地">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-nav"><span class="top"><i></i><span class="p-bar w30"></span></span><span class="body"></span><span class="bottom"><i></i><i></i><i></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-navigation"></use></svg><span class="lib-item-name">ナビゲーション</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Navigation</span>
+                        <p class="lib-item-desc">App はヘッダー・タブ・ボトムアクションバー・サイドメニュー、Admin はサイドナビゲーションが中心。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>画面間の移動と、いま居る場所の提示</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>画面ごとに構成や並び順を変える</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Header</span><span class="lib-tag">BottomBar</span><span class="lib-tag">SideNav</span></div>
+                    </a>
+                </div>
+            </details>
+
+            <details class="lib-scope" data-lib-group>
+                <summary class="lib-scope-head">
+                    <span class="lib-scope-chip is-app"><i></i>App のみ</span>
+                    <h4>記録を作る画面に特化した部品</h4>
+                    <span class="lib-scope-count" data-lib-group-count>3 群</span>
+                    <svg class="lib-scope-toggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </summary>
+                <p class="lib-scope-desc">タッチとタッチペンでの片手操作を前提に、タップ領域と判読性を優先した設計です。情報密度が前提から外れるため、Admin 画面には転用しないでください。</p>
+                <div class="lib-items">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-checkbox" data-scope="app" data-kw="checkbox checkbox 複数選択 チェック NG">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-row"><span class="p-check is-on">✓</span><i class="p-bar w70"></i></span><span class="p-row"><span class="p-check"></span><i class="p-bar is-light w55"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-checkbox"></use></svg><span class="lib-item-name">チェックボックス</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Checkbox</span>
+                        <p class="lib-item-desc">通常の Check と NG 用の 2 系統。それぞれ On / Off を持ちます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>複数を選ぶ。実施済み / 未実施を切り替える</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>どれか 1 つだけ選ばせたいとき（ラジオを使う）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Check</span><span class="lib-tag">NG</span><span class="lib-tag">On / Off</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-list-item" data-scope="app" data-kw="listitem list row 一覧 検査リスト 行">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-col p-list"><span class="row"><i class="p-bar w55"></i><span class="p-tag is-green">完了</span></span><span class="row"><i class="p-bar w40"></i><span class="p-tag is-gray">未</span></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-listitem"></use></svg><span class="lib-item-name">リストアイテム</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">ListItem</span>
+                        <p class="lib-item-desc">一覧行のコンポーネント群。検査リスト・アイテム行・テキストコンテンツで構成されます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>点検項目や記録を縦に並べて、1 件ずつ開かせるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>列どうしを比べたいとき（テーブルを使う）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">検査リスト</span><span class="lib-tag">アイテム行</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-inspection-status" data-scope="app" data-kw="inspectionstatus inspection 検査 進捗 数値入力 質問">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-row" style="justify-content:space-between"><span class="p-row"><span class="p-num">25.4</span><span class="p-unit">℃</span></span><span class="p-tag is-green">3 / 5</span></span><span class="p-prog"><i style="width:60%"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-inspectionstatus"></use></svg><span class="lib-item-name">検査ステータス</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">InspectionStatus</span>
+                        <p class="lib-item-desc">検査フロー専用の部品群。ステータス表示・数値入力ボタン・質問コンテナ・進捗アコーディオン・確認行を含みます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>検査フローの進捗表示・数値入力・質問の提示</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>Admin 画面へそのまま流用する（タップ領域の前提が違う）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">数値入力</span><span class="lib-tag">質問コンテナ</span><span class="lib-tag">進捗</span></div>
+                    </a>
+                </div>
+            </details>
+
+            <details class="lib-scope" data-lib-group>
+                <summary class="lib-scope-head">
+                    <span class="lib-scope-chip is-admin"><i></i>Admin のみ</span>
+                    <h4>大量データの閲覧・操作に向けた部品</h4>
+                    <span class="lib-scope-count" data-lib-group-count>15 群</span>
+                    <svg class="lib-scope-toggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                </summary>
+                <p class="lib-scope-desc">一覧・絞り込み・ページ送りなど、情報密度を高く保つことを優先しています。ホバー状態を前提とする部品が多く含まれます。</p>
+                <div class="lib-items">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-table-row" data-scope="admin" data-kw="tablerow table row 一覧 比較 データ">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-table"><span class="tr head"><i class="p-bar is-dark w25"></i><i class="p-bar is-dark w40"></i><i class="p-bar is-dark w25"></i></span><span class="tr"><i class="p-bar w25"></i><i class="p-bar w40"></i><i class="p-bar w25"></i></span><span class="tr"><i class="p-bar w25"></i><i class="p-bar w40"></i><i class="p-bar w25"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-tablerow"></use></svg><span class="lib-item-name">テーブル / 行</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">TableRow</span>
+                        <p class="lib-item-desc">ヘッダー行とデータ行。会社・工場・スタッフ・お知らせ・官能検査・重量・使用水など用途別に多数用意。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>同じ属性のデータを列で見比べるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>1 行の情報量が多く、横スクロールが前提になるとき</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Header</span><span class="lib-tag">用途別データ行</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-filter-search" data-scope="admin" data-kw="filtersearch filter search 絞り込み 検索">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg> 帳票名で検索</span><span class="p-row"><span class="p-chip on">今月</span><span class="p-chip">工場</span><span class="p-chip">未承認</span></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-filtersearch"></use></svg><span class="lib-item-name">フィルター検索</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">FilterSearch</span>
+                        <p class="lib-item-desc">一覧の絞り込み。開閉状態（active / inactive）を持ちます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>一覧の件数を条件で絞るとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>条件が 1 つしかないとき（セレクト単体で足りる）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">active</span><span class="lib-tag">inactive</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-pagination" data-scope="admin" data-kw="pagination pagination ページ送り 一覧">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row p-page"><span class="p-pg">‹</span><span class="p-pg on">1</span><span class="p-pg">2</span><span class="p-pg">3</span><span class="p-pg">›</span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-pagination"></use></svg><span class="lib-item-name">ページネーション</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Pagination</span>
+                        <p class="lib-item-desc">一覧のページ送り。件数の多いテーブルとセットで使用します。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>一覧が 1 画面に収まらないとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>件数が少なく 1 画面で終わる一覧に付ける</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">一覧</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-card" data-scope="admin" data-kw="card card コンテナ 選択 タイル">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row" style="width:100%;justify-content:center"><span class="p-mini-card on"><i class="p-bar is-dark w70"></i><i class="p-bar is-light w90"></i></span><span class="p-mini-card"><i class="p-bar is-dark w55"></i><i class="p-bar is-light w80"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-card"></use></svg><span class="lib-item-name">カード</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Card</span>
+                        <p class="lib-item-desc">アイコンの有無と Default / Hover / Selected の状態を持つコンテナ。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>1 件の情報をまとめて見せる、選ばせるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>カードの中にカードを入れて階層を深くする</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Hover</span><span class="lib-tag">Selected</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-radio-button" data-scope="admin" data-kw="radiobutton radio 単一選択 排他">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-row"><span class="p-radio is-on"></span><i class="p-bar w60"></i></span><span class="p-row"><span class="p-radio"></span><i class="p-bar is-light w45"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-radiobutton"></use></svg><span class="lib-item-name">ラジオボタン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">RadioButton</span>
+                        <p class="lib-item-desc">排他選択。active / inactive の 2 状態です。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>選択肢が少なく、必ず 1 つ選ばせるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>選択肢が 6 つを超えるとき（セレクトにまとめる）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">active</span><span class="lib-tag">inactive</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-textarea" data-scope="admin" data-kw="textarea textarea 複数行 備考 自由記述">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-field p-area"><span class="p-col"><i class="p-bar w90"></i><i class="p-bar w100"></i><i class="p-bar is-light w60"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-textarea"></use></svg><span class="lib-item-name">テキストエリア</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Textarea</span>
+                        <p class="lib-item-desc">複数行のテキスト入力。Default / Focus / Error / Disabled の 4 状態。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>複数行の自由記述。備考・指示・申し送り</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>1 行で足りる入力に使う</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Focus</span><span class="lib-tag">Error</span><span class="lib-tag">Disabled</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-dropdown" data-scope="admin" data-kw="dropdown dropdown menu メニュー 操作">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-menu"><span class="mi"><i class="p-bar w60"></i></span><span class="mi on"><i class="p-bar w70"></i></span><span class="mi danger"><i class="p-bar w45"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-dropdown"></use></svg><span class="lib-item-name">ドロップダウン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Dropdown</span>
+                        <p class="lib-item-desc">メニュー項目。Default / Hover / Danger の 3 状態と、それらを束ねる DropdownMenu。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>行や画面に対する操作をまとめて置くとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>主要な操作を隠す（主操作はボタンとして画面に出す）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Hover</span><span class="lib-tag">Danger</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-accordion" data-scope="admin" data-kw="accordion accordion 開閉 折りたたみ">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-acc"><span class="hd"><i class="p-bar is-dark w55"></i><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></b></span><span class="bd"><i class="p-bar is-light w80"></i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-accordion"></use></svg><span class="lib-item-name">アコーディオン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Accordion</span>
+                        <p class="lib-item-desc">開閉して情報量を制御するコンテナ。3 つの状態を持ちます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>普段は畳んでおける補足情報</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>必ず読ませたい情報を畳んで隠す</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">3 states</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-tab" data-scope="admin" data-kw="tab tab tabbar 切り替え">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-tabs"><span class="on">検査</span><span>履歴</span><span>設定</span></span><i class="p-bar is-light w80"></i></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-tab"></use></svg><span class="lib-item-name">タブ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Tab</span>
+                        <p class="lib-item-desc">Default / Active / Hover の 3 状態と、それらを並べる TabBar。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>同じ対象の見せ方を切り替えるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>順番のある手順に使う（ステップとして並べる）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Active</span><span class="lib-tag">Hover</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-breadcrumb" data-scope="admin" data-kw="breadcrumb breadcrumb 階層 現在地">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-crumb">工場一覧 › 第一工場 › <b>帳票詳細</b></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-breadcrumb"></use></svg><span class="lib-item-name">パンくずリスト</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Breadcrumb</span>
+                        <p class="lib-item-desc">現在位置を示す階層表示。階層数を 2〜10 で切り替えられます。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>階層が 2 段以上ある画面で現在地を示すとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>階層が 1 段しかない画面に置く</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">2〜10 階層</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-calendar" data-scope="admin" data-kw="calendar calendar 日付 月 カレンダー">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-cal"><i class="head"></i><i class="head"></i><i class="head"></i><i class="head"></i><i class="head"></i><i class="head"></i><i class="head"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-calendar"></use></svg><span class="lib-item-name">カレンダー</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Calendar</span>
+                        <p class="lib-item-desc">日付セルと曜日ヘッダー。日付入力（InputDate）と組み合わせて使います。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>日付を目で選ぶとき。月内の分布を見せるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>単一日付を入れるだけのとき（日付入力で足りる）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">日付セル</span><span class="lib-tag">曜日</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-alert" data-scope="admin" data-kw="alert alert 警告 エラー 注意 inline">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-alert"><i>!</i><span class="p-col"><span class="p-bar is-dark w70"></span><span class="p-bar is-light w90"></span></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-alert"></use></svg><span class="lib-item-name">アラート</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Alert</span>
+                        <p class="lib-item-desc">画面内に留まる通知。Primary / Danger / Caution の 3 種です。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>画面に留めて読ませる注意・エラー</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>成功の報告に使う（トーストにする）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Primary</span><span class="lib-tag">Danger</span><span class="lib-tag">Caution</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-toast" data-scope="admin" data-kw="toast toast snackbar 通知 完了">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-toast"><i>✓</i><span class="p-bar"></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-toast"></use></svg><span class="lib-item-name">トースト</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Toast</span>
+                        <p class="lib-item-desc">一時的に表示して自動で消える通知。Success / Error の 2 種です。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>完了・失敗の短い報告。数秒で消えてよいもの</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>操作や長い説明を入れる（消えると読み返せない）</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">Success</span><span class="lib-tag">Error</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-badge" data-scope="admin" data-kw="badge badge 件数 未読 通知">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row" style="gap:14px"><span class="p-badge"><i>3</i></span><span class="p-badge"><i>99+</i></span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-badge"></use></svg><span class="lib-item-name">バッジ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">Badge</span>
+                        <p class="lib-item-desc">未読・未処理の件数表示。数値 / 99+ / ドットの 3 種です。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>未読・未処理の件数を知らせるとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>0 件のときも表示し続ける</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">数値</span><span class="lib-tag">99+</span><span class="lib-tag">Dot</span></div>
+                    </a>
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-authority-tag" data-scope="admin" data-kw="authoritytag authority role 権限 ロール 実施者 承認者">
+                        <span class="lib-prev" aria-hidden="true"><span class="p-row p-wrap"><span class="p-tag is-green">実施者</span><span class="p-tag is-gray">確認者</span><span class="p-tag is-amber">承認者</span></span></span>
+                        <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-authoritytag"></use></svg><span class="lib-item-name">権限タグ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+                        <span class="lib-item-en">AuthorityTag</span>
+                        <p class="lib-item-desc">ユーザー権限を示すタグ。実施者 / 確認者 / 承認者 / 管理者の 4 種です。</p>
+                        <dl class="lib-item-meta">
+                            <div class="is-use"><dt>使う</dt><dd>ユーザーの権限を一覧や詳細で示すとき</dd></div>
+                            <div class="is-avoid"><dt>避ける</dt><dd>権限以外の属性（所属・状態）に流用する</dd></div>
+                        </dl>
+                        <div class="lib-item-tags"><span class="lib-tag">実施者</span><span class="lib-tag">確認者</span><span class="lib-tag">承認者</span><span class="lib-tag">管理者</span></div>
+                    </a>
+                </div>
+            </details>
+
+            </div>
+            <p class="lib-empty" data-lib-empty hidden>条件に合うコンポーネントがありません。別の言葉や「すべて」で試してください。</p>
+            <div class="lib-section-label doc-section" id="conventions">
+                <h2>命名とバリアントの考え方</h2>
+                <span>Conventions</span>
+            </div>
+            <p class="lib-section-note">コンポーネントを探すとき・追加するときの共通ルールです。名前とバリアント軸が揃っていれば、Figma と実装のズレを早い段階で発見できます。</p>
+            <div class="lib-convention">
+                <div class="lib-conv-card">
+                    <h4>命名規則</h4>
+                    <p>Figma 上のコンポーネント名は、<strong>プロダクト / 種別 / バリアント</strong>の順に並べます。日本語名はこのガイド上の表示用で、実装・Figma の正式名は英語です。</p>
+                    <div class="lib-conv-code">App / Button / Solid・Large・Default
+Admin / Input / Medium・Focus
+Admin / TableRow / Company・Header</div>
+                </div>
+                <div class="lib-conv-card">
+                    <h4>バリアントの 4 軸</h4>
+                    <p>ほとんどのコンポーネントは、次の 4 つの軸の組み合わせで表現します。新しいバリアントを足す前に、既存の軸で表せないかを確認してください。</p>
+                    <ul class="lib-axis">
+                        <li><b>Style</b><span>役割・重要度を表す（Solid / Outline など）</span></li>
+                        <li><b>Size</b><span>置かれる場所で決まる（画面全体 / セクション / 行内）</span></li>
+                        <li><b>State</b><span>ユーザー操作やデータの状況（Default / Hover / Focus / Error / Disabled）</span></li>
+                        <li><b>Icon</b><span>アイコンの有無と位置。テキストなしの場合は <code>aria-label</code> 必須</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lib-section-label doc-section" id="how-to-use">
+                <h2>使うときの手順</h2>
+                <span>How to use</span>
+            </div>
+            <div class="lib-steps">
+                <div class="lib-step">
+                    <div class="lib-step-num">STEP 01</div>
+                    <h4>スコープを決める</h4>
+                    <p>つくる画面が App か Admin かを最初に確定します。共通コンポーネントでも、選ぶバリアントセットが変わります。</p>
+                </div>
+                <div class="lib-step">
+                    <div class="lib-step-num">STEP 02</div>
+                    <h4>既存から探す</h4>
+                    <p>この一覧で近いコンポーネントを探し、詳細パネルでバリアントと状態を確認します。名前が違っても役割が同じなら流用します。</p>
+                </div>
+                <div class="lib-step">
+                    <div class="lib-step-num">STEP 03</div>
+                    <h4>状態まで揃える</h4>
+                    <p>Default だけでなく、Hover・Focus・Error・Disabled・空状態まで設計します。抜けた状態は実装時の判断ブレになります。</p>
+                </div>
+                <div class="lib-step">
+                    <div class="lib-step-num">STEP 04</div>
+                    <h4>足りなければ提案する</h4>
+                    <p>既存で解決できない場合のみ、追加を提案します。まず Figma に定義を追加し、そのうえで本ガイドに反映します。</p>
+                </div>
+            </div>
+
+            <div class="lib-section-label doc-section" id="lib-gaps">
+                <h2>未定義のコンポーネント</h2>
+                <span>Gaps</span>
+            </div>
+            <p class="lib-section-note">運用上は必要とされているものの、現時点で Figma に定義がないものです。これらが必要な場面では、個別に作り込む前に定義の追加を検討してください。</p>
+            <div class="lib-gaps">
+                <div class="lib-gap-row">
+                    <span>コンポーネント</span>
+                    <span>状況と検討事項</span>
+                    <span>ステータス</span>
+                </div>
+                <div class="lib-gap-row">
+                    <span class="lib-gap-name">Danger Button</span>
+                    <p>削除・退会など取り返しのつかない操作を表すボタン。Admin のテーブル行に削除操作があるため、<code>status/error #f85c5c</code> を起点とした定義の追加を検討中。</p>
+                    <span class="lib-gap-state is-todo">検討中</span>
+                </div>
+                <div class="lib-gap-row">
+                    <span class="lib-gap-name">Text Link</span>
+                    <p>文中リンクとして使うスタイル。現在は定義がなく、実装ごとに見た目が分かれる可能性があります。</p>
+                    <span class="lib-gap-state is-todo">検討中</span>
+                </div>
+                <div class="lib-gap-row">
+                    <span class="lib-gap-name">空状態 / ローディング</span>
+                    <p>データが 0 件のとき、読み込み中のときの表示。一覧系コンポーネントとセットで必要になります。</p>
+                    <span class="lib-gap-state is-todo">未定義</span>
+                </div>
+            </div>
+        </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="footer-logo" href="nqrepo-design-guide.html"><img src="data:image/png;base64,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" alt="" width="28" height="30" decoding="async">NQrepo Design System</a>
+                <p class="footer-tagline">現場で、迷わない。</p>
+                <p class="footer-desc">食品工場の日報・点検業務を支える NQrepo の設計言語。iPad アプリ（App）と管理画面（Admin）のどちらから触れても同じ体験になるよう、色・文字・コンポーネントのルールをここに集めています。</p>
+            </div>
+            <div class="footer-nav" role="navigation" aria-label="サイトマップ">
+                <div class="footer-col">
+                    <h4><a href="nqrepo-design-brand.html">ブランド</a></h4>
+                    <ul>
+                        <li><a href="nqrepo-design-brand.html#brand-core">ブランドの核</a></li>
+                        <li><a href="nqrepo-design-brand.html#design-context">デザインの前提</a></li>
+                        <li><a href="nqrepo-design-brand.html#users">利用者とデザイン要件</a></li>
+                        <li><a href="nqrepo-design-brand.html#logo">ロゴ</a></li>
+                        <li><a href="nqrepo-design-brand.html#brand-color">ブランドカラー</a></li>
+                        <li><a href="nqrepo-design-brand.html#wording">ことばづかい</a></li>
+                        <li><a href="nqrepo-design-brand.html#donts">禁止パターン</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><a href="nqrepo-design-principles.html">原則</a></h4>
+                    <ul>
+                        <li><a href="nqrepo-design-principles.html#overview">6つの原則と、その関係</a></li>
+                        <li><a href="nqrepo-design-principles.html#principles">NQrepoらしさ 6原則</a></li>
+                        <li><a href="nqrepo-design-principles.html#usage">原則の使い方</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><a href="nqrepo-design-styles.html">スタイル</a></h4>
+                    <ul>
+                        <li><a href="nqrepo-design-styles.html#panel-color">カラー</a></li>
+                        <li><a href="nqrepo-design-styles.html#panel-typography">タイポグラフィ</a></li>
+                        <li><a href="nqrepo-design-styles.html#panel-icon">アイコン</a></li>
+                        <li><a href="nqrepo-design-styles.html#panel-elevation">エレベーション</a></li>
+                        <li><a href="nqrepo-design-styles.html#panel-button">ボタン</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><a href="nqrepo-design-components.html">コンポーネント</a></h4>
+                    <ul>
+                        <li><a href="nqrepo-design-components.html#foundations">基本要素</a></li>
+                        <li><a href="nqrepo-design-components.html#by-scope">スコープ別コンポーネント</a></li>
+                        <li><a href="nqrepo-design-components.html#conventions">命名とバリアントの考え方</a></li>
+                        <li><a href="nqrepo-design-components.html#how-to-use">使うときの手順</a></li>
+                        <li><a href="nqrepo-design-components.html#lib-gaps">未定義のコンポーネント</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 NQrepo Design System</p>
+            <p class="footer-source">デザインの正はつねに Figma「NQrepo UI Kit」です</p>
+            <a class="footer-top" href="#">ページの先頭へ<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg></a>
+        </div>
+    </footer>
+
+    <script src="assets/nqrepo-doc.js"></script>
+    <script src="assets/nqrepo-components.js" defer></script>
+</body>
+</html>

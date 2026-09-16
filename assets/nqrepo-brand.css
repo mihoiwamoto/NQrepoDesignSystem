@@ -1,0 +1,133 @@
+/* =========================================================
+   ブランドページ固有のコンポーネント
+   ========================================================= */
+
+/* ---------- ブランドの核 ---------- */
+.core-statement {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    padding: 2.75rem 3rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #F2FAF5 0%, #EAF7F0 100%);
+}
+.core-statement-mark { flex: 0 0 96px; }
+.core-statement-mark img { display: block; width: 96px; height: auto; }
+.core-tagline {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    color: var(--color-heading);
+}
+.core-statement p.core-lede { margin: 1.1rem 0 0; font-size: 0.98rem; line-height: 1.95; color: var(--color-text); max-width: 40em; }
+.core-lede strong { color: var(--color-heading); }
+
+.core-values { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+.core-value { display: flex; flex-direction: column; min-width: 0; padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg); }
+.core-value-no { font-family: "Inter", monospace; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; color: var(--color-accent-on-soft); }
+.core-value h3 { margin: 0.65rem 0 0.15rem; font-size: 1.02rem; }
+.core-value-en { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-text-secondary); }
+.core-value p { margin: 0.8rem 0 0; font-size: 0.82rem; line-height: 1.85; color: var(--color-text-secondary); }
+.core-value p strong { color: var(--color-heading); }
+
+/* ---------- ロゴ ---------- */
+.logo-showcase { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 1.25rem; margin-top: 1.75rem; align-items: stretch; }
+.logo-stage { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem; padding: 2.75rem 2rem; border: 1px solid var(--color-border); border-radius: 16px; background: var(--color-bg); }
+.logo-stage img { display: block; width: 104px; height: auto; }
+.logo-stage-caption { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-secondary); }
+
+.logo-specs { display: flex; flex-direction: column; gap: 0.7rem; }
+.logo-spec { display: flex; gap: 1.1rem; min-width: 0; padding: 1.05rem 1.25rem; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg); }
+.logo-spec-key { flex: 0 0 6.5em; font-size: 0.82rem; font-weight: 700; color: var(--color-heading); }
+.logo-spec-val { margin: 0; min-width: 0; font-size: 0.82rem; line-height: 1.8; color: var(--color-text-secondary); }
+.logo-spec-val strong { color: var(--color-heading); }
+
+/* 保護領域の図 */
+.logo-clear { display: flex; align-items: center; justify-content: center; margin-top: 1rem; padding: 2.5rem; border: 1px solid var(--color-border); border-radius: 16px; background: var(--color-bg); }
+.logo-clear-box { position: relative; padding: 26px; border: 1px dashed var(--color-border-strong); border-radius: 6px; }
+.logo-clear-box::before { content: ""; position: absolute; inset: 26px; border: 1px solid var(--color-accent); opacity: 0.45; }
+.logo-clear-box img { display: block; width: 104px; height: auto; }
+.logo-clear-mark { position: absolute; font-family: monospace; font-size: 0.64rem; font-weight: 700; color: var(--color-accent-on-soft); }
+.logo-clear-mark.is-top { top: 6px; left: 50%; transform: translateX(-50%); }
+.logo-clear-mark.is-left { left: 6px; top: 50%; transform: translateY(-50%); }
+
+
+/* ---------- ブランドカラー ---------- */
+.bc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(212px, 1fr)); gap: 1rem; margin-top: 1.75rem; }
+.bc-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg); overflow: hidden; }
+.bc-swatch { display: flex; align-items: flex-end; height: 112px; padding: 0.85rem 1rem; }
+.bc-swatch span { font-family: monospace; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; }
+.bc-body { flex: 1; padding: 1.05rem 1.15rem 1.35rem; }
+.bc-role { display: block; font-size: 0.92rem; font-weight: 700; color: var(--color-heading); }
+.bc-token { display: block; margin-top: 0.3rem; font-family: monospace; font-size: 0.7rem; color: var(--color-text-secondary); }
+.bc-desc { margin: 0.8rem 0 0; font-size: 0.8rem; line-height: 1.8; color: var(--color-text-secondary); }
+.bc-contrast { display: inline-block; margin-top: 0.7rem; padding: 0.18rem 0.55rem; border-radius: 999px; font-family: monospace; font-size: 0.66rem; font-weight: 700; color: var(--color-accent-on-soft); background: var(--color-accent-soft); }
+
+.bc-ratio { margin-top: 2.25rem; }
+.bc-ratio-bar { display: flex; height: 52px; border: 1px solid var(--color-border); border-radius: 10px; overflow: hidden; }
+.bc-ratio-seg + .bc-ratio-seg { border-left: 1px solid var(--color-border); }
+.bc-ratio-seg { display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
+.bc-ratio-note { margin: 0.85rem 0 0; font-size: 0.82rem; line-height: 1.85; color: var(--color-text-secondary); }
+.bc-ratio-note strong { color: var(--color-heading); }
+
+/* ---------- ことばづかい ---------- */
+.type-table.spec-left th, .type-table.spec-left td { text-align: left; white-space: normal; vertical-align: top; }
+.type-table.spec-left td { font-family: inherit; font-size: 0.84rem; line-height: 1.8; color: var(--color-text-secondary); }
+.type-table.spec-left tbody tr + tr td { border-top: 1px solid var(--color-border); }
+.type-table.spec-left td:first-child { width: 9.5em; font-weight: 700; color: var(--color-heading); white-space: nowrap; }
+.type-table.spec-left td strong { color: var(--color-heading); }
+
+.brand-block .word-sub { margin: 2.75rem 0 0.9rem; font-size: 1rem; font-weight: 700; color: var(--color-heading); }
+.brand-block .word-sub span { display: block; margin-top: 0.3rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-secondary); }
+.dodont-demo.is-text { display: block; align-items: stretch; padding: 1.15rem 1.3rem; font-size: 0.9rem; line-height: 1.75; color: var(--color-heading); overflow-x: visible; white-space: normal; }
+.dodont-demo.is-text em { display: block; margin-top: 0.4rem; font-style: normal; font-size: 0.76rem; color: var(--color-text-secondary); }
+
+/* ---------- 禁止パターン ---------- */
+.ng-lead { margin: 0.35rem 0 0; font-size: 0.84rem; line-height: 1.85; color: var(--color-text-secondary); }
+.ng-lead a { font-weight: 700; }
+.ng-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 1rem; margin-top: 1.1rem; }
+.ng-card { display: flex; flex-direction: column; min-width: 0; padding: 1rem; border: 1px solid var(--color-border); border-top: 3px solid #C22C2C; border-radius: 12px; background: var(--color-bg); }
+.ng-demo { display: flex; align-items: center; justify-content: center; gap: 0.5rem; height: 92px; padding: 0 0.85rem; border-radius: 8px; background: var(--color-bg-secondary); overflow: hidden; }
+.ng-demo img { width: 54px; height: auto; }
+.ng-card p { margin: 0.75rem 0 0; font-size: 0.78rem; line-height: 1.75; color: var(--color-text-secondary); }
+
+/* ロゴの加工 */
+.is-ng-stretch img { transform: scaleX(1.5); }
+.is-ng-rotate img { transform: rotate(-15deg); }
+.is-ng-tint img { filter: hue-rotate(165deg) saturate(1.7); }
+.is-ng-shadow img { filter: drop-shadow(0 7px 7px rgba(0, 0, 0, 0.5)); }
+.ng-demo.is-ng-lowcontrast { background: #2C7A4B; }
+
+/* 色の使いすぎ */
+.ng-demo.is-ng-flood { background: #009944; }
+.ng-plate { width: 68%; height: 38px; border-radius: 6px; background: #FFFFFF; }
+.ng-demo.is-ng-lowtext { background: #FFFFFF; box-shadow: inset 0 0 0 1px var(--color-border); }
+.ng-demo.is-ng-onsoft { background: #DDF3E7; }
+.ng-sample-text { font-size: 0.95rem; font-weight: 700; color: #009944; }
+.ng-sample-text.is-white { color: #FFFFFF; }
+.ng-btn { display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 0.8rem; border-radius: 6px; font-size: 0.74rem; font-weight: 700; color: #FFFFFF; white-space: nowrap; }
+.ng-btn.is-green { background: #009944; }
+.ng-btn.is-other { background: #3C6BE0; }
+.ng-demo.is-ng-extra { flex-direction: column; gap: 0.4rem; }
+.ng-stack { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.ng-stack .ng-head { font-size: 0.8rem; font-weight: 700; color: #009944; }
+.ng-stack .ng-rule { width: 72px; height: 3px; border-radius: 2px; background: #009944; }
+.ng-stack .ng-body { font-size: 0.66rem; color: #4E8F6B; }
+
+.ng-table td:first-child { color: #C22C2C; }
+
+/* ---------- 補足ノート ---------- */
+.brand-draft-note { display: flex; gap: 0.7rem; margin-top: 1.5rem; padding: 0.95rem 1.15rem; border-left: 3px solid var(--color-accent); border-radius: 0 8px 8px 0; background: var(--color-bg-secondary); }
+.brand-draft-note p { margin: 0; font-size: 0.8rem; line-height: 1.8; color: var(--color-text-secondary); }
+.brand-draft-note strong { color: var(--color-heading); }
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 960px) {
+    .core-statement { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem 1.75rem; }
+    .logo-showcase { grid-template-columns: 1fr; }
+    .logo-spec-key { flex-basis: 5.5em; }
+}
