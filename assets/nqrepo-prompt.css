@@ -1,0 +1,41 @@
+/* ---- スタイルページ：実装用プロンプトのコピーボタン ----
+   nqrepo-prompt.js が部品見出し（.type-group-name）の右端と、
+   部品に分かれていないブロックの App / Admin 見出しの右端に差し込む */
+
+.nqp-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nqp-head h5 { margin-bottom: 0; }
+.nqp-head + .eyebrow-soft, .nqp-head + .btn-note { margin-top: 0.6rem; }
+
+.nqp-copy { display: inline-flex; align-items: center; gap: 0.4rem; flex: none; padding: 0.5rem 0.9rem; border: 1px solid var(--color-accent); border-radius: 999px; background: #ffffff; font-family: var(--font-body); font-weight: 600; font-size: 0.78rem; line-height: 1; color: var(--color-accent); white-space: nowrap; cursor: pointer; transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, transform 0.08s ease; }
+.nqp-copy svg { width: 15px; height: 15px; flex: none; }
+.nqp-copy:hover { background: #eaf7ec; }
+.nqp-copy:active { transform: translateY(1px); }
+.nqp-copy:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.nqp-copy.is-done { background: var(--color-accent); border-color: var(--color-accent); color: #ffffff; }
+.nqp-copy.is-error { border-color: #f34949; color: #f34949; }
+.nqp-copy--sm { padding: 0.38rem 0.7rem; font-size: 0.72rem; border-color: var(--color-border); color: var(--color-text-secondary); }
+.nqp-copy--sm:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+/* クリップボードが使えない環境向け：手動コピー用ダイアログ */
+.nqp-dialog { position: fixed; inset: 0; z-index: 2200; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(10, 23, 18, 0.45); }
+.nqp-dialog-box { display: flex; flex-direction: column; gap: 0.75rem; width: min(760px, 100%); max-height: calc(100vh - 48px); padding: 1.25rem; border-radius: 12px; background: #ffffff; box-shadow: 0 8px 32px rgba(10, 23, 18, 0.24); }
+.nqp-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.nqp-dialog-head h6 { margin: 0; font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--color-heading); }
+.nqp-dialog-note { margin: 0; font-size: 0.8rem; color: var(--color-text-secondary); }
+.nqp-dialog textarea { flex: 1 1 auto; width: 100%; min-height: 320px; padding: 0.9rem; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-bg-secondary); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.78rem; line-height: 1.6; color: var(--color-text); resize: vertical; }
+.nqp-dialog-close { appearance: none; border: 1px solid var(--color-border); border-radius: 999px; padding: 0.4rem 0.9rem; background: #ffffff; font-family: var(--font-body); font-weight: 600; font-size: 0.78rem; color: var(--color-text); cursor: pointer; }
+.nqp-dialog-close:hover { background: var(--color-bg-secondary); }
+
+/* ---- 部品（入力スペースなど）ごとのコピーボタン ---- */
+.type-group-name { flex-wrap: wrap; }
+.type-group-name .nqp-copy--part { margin-left: auto; align-self: center; }
+@media (max-width: 640px) {
+    .type-group-name .nqp-copy--part { margin-left: 0; }
+}
+
+/* ---- カード下部のアクション欄に置くとき（.nqf-act と併用） ---- */
+.nqp-copy--block { padding: 0.6rem 1rem; border: 1px solid var(--color-accent-strong); border-radius: 10px; background: var(--color-accent-strong); font-size: 0.85rem; font-weight: 700; color: #ffffff; }
+.nqp-copy--block svg { width: 16px; height: 16px; }
+.nqp-copy--block:hover { background: var(--color-accent); border-color: var(--color-accent); color: #ffffff; }
+.nqp-copy--block.is-done { background: var(--color-accent); border-color: var(--color-accent); color: #ffffff; }
+.nqp-copy--block.is-error { background: #ffffff; border-color: #f34949; color: #f34949; }

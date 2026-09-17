@@ -1,0 +1,31 @@
+/* =========================================================
+   絞り込みバー（スタイルページ上部）
+   ========================================================= */
+.ds-filter { position: sticky; top: 72px; z-index: 4; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-top: 2.5rem; padding: 1rem 0; border-bottom: 1px solid var(--color-border); background: var(--color-bg); }
+.ds-filter-search { position: relative; flex: 1 1 260px; min-width: 0; }
+.ds-filter-search svg { position: absolute; top: 50%; left: 0.85rem; width: 15px; height: 15px; transform: translateY(-50%); color: var(--color-text-secondary); pointer-events: none; }
+.ds-filter-search input { width: 100%; height: 42px; padding: 0 2.4rem 0 2.4rem; border: 1px solid var(--color-border-strong); border-radius: 999px; background: var(--color-bg); font-family: inherit; font-size: 0.86rem; color: var(--color-heading); }
+.ds-filter-search input::placeholder { color: var(--color-text-secondary); }
+.ds-filter-search input:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+.ds-filter-clear { position: absolute; top: 50%; right: 0.5rem; display: none; width: 26px; height: 26px; transform: translateY(-50%); border: 0; border-radius: 50%; background: var(--color-bg-secondary); color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1; cursor: pointer; }
+.ds-filter-search.has-value .ds-filter-clear { display: block; }
+
+.ds-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.ds-chip { display: inline-flex; align-items: center; gap: 0.4rem; height: 34px; padding: 0 0.85rem; border: 1px solid var(--color-border-strong); border-radius: 999px; background: var(--color-bg); font-family: inherit; font-size: 0.78rem; font-weight: 700; color: var(--color-text-secondary); cursor: pointer; transition: background 0.16s, color 0.16s, border-color 0.16s; }
+.ds-chip span { font-family: monospace; font-size: 0.7rem; font-weight: 700; opacity: 0.75; }
+.ds-chip:hover { border-color: var(--color-accent); color: var(--color-accent-text); }
+.ds-chip[aria-pressed="true"] { border-color: var(--color-accent-strong); background: var(--color-accent-strong); color: #FFFFFF; }
+.ds-chip:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.ds-filter-status { flex: 1 0 100%; margin: 0; font-size: 0.76rem; color: var(--color-text-secondary); }
+.ds-filter-status b { font-family: monospace; color: var(--color-heading); }
+.lib-group-empty > *:not(.ds-filter) { display: none; }
+.ds-filter-empty { margin: 1.5rem 0 0; padding: 2rem; border: 1px dashed var(--color-border-strong); border-radius: 12px; text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* 絞り込み中に空になった見出し・パネル群・サイドバー項目 */
+.doc-panel-group[hidden], .component-detail-panel[hidden], .component-tab[hidden], .component-tab-group[hidden] { display: none !important; }
+
+@media (max-width: 900px) {
+    .ds-filter { position: static; }
+}

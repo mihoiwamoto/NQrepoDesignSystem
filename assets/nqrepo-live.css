@@ -1,0 +1,116 @@
+/* ---- スタイルページ：nqf-* モックを実際に操作できる部品にするための追加スタイル ----
+   nqrepo-live.js が静的モックに <input> / <textarea> を差し込み、
+   ボタン・タブ・アコーディオン等に data-nqf-act を付与する。ここではその見た目を補う。 */
+
+/* 共通：押せる要素 */
+.nqf-press { cursor: pointer; -webkit-user-select: none; user-select: none; transition: transform 0.08s ease, opacity 0.12s ease, background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease, box-shadow 0.12s ease; }
+.nqf-press:active { transform: translateY(1px); }
+.nqf-press:focus-visible { outline: 2px solid #009944; outline-offset: 2px; }
+.nqf-press:focus { outline: none; }
+.nqf-press:focus-visible { outline: 2px solid #009944; }
+
+/* 差し込んだ入力欄：見た目は元の枡をそのまま使い、input 自体は透明にする */
+.nqf-field, .nqf-ta-field { appearance: none; -webkit-appearance: none; margin: 0; padding: 0; border: 0; outline: 0; background: transparent; box-shadow: none; font-family: inherit; color: #333333; }
+.nqf-field::placeholder, .nqf-ta-field::placeholder { color: #808080; opacity: 1; }
+.nqf-input > .nqf-field { flex: 1 1 auto; width: 100%; min-width: 0; text-align: right; font-weight: 600; font-size: 16px; line-height: 1.4; }
+input.nqf-ainput-text { color: #333333; }
+.nqf-textarea > .nqf-field, .nqf-dlg-longtext > .nqf-field { display: block; width: 100%; height: 100%; resize: none; font-weight: 300; font-size: 14px; line-height: 1.6; }
+.nqf-ta > .nqf-ta-field { position: absolute; left: 0; top: 24px; width: 360px; height: 96px; padding: 12px; resize: none; font-family: var(--font-body); font-weight: 400; font-size: 14px; line-height: normal; }
+.nqf-ta > .nqf-ta-field::placeholder { color: #b5b5b5; }
+.nqf-ta > .nqf-ta-field:disabled { cursor: not-allowed; color: #808080; }
+
+/* フォーカス状態：Figma の focus バリアントと同じ brand/primary の 1px 枠 */
+.nqf-input:focus-within, .nqf-textarea:focus-within, .nqf-dlg-longtext:focus-within,
+.nqf-ainput:focus-within, .nqf-abox.is-open, .nqf-select.is-open, .nqf-date.is-open, .nqf-cert.is-open { outline: 1px solid #009944; outline-offset: -1px; }
+.nqf-ainput--error:focus-within, .nqf-abox--error.is-open { outline-color: #f85c5c; }
+.nqf-ta:focus-within .nqf-ta-box { border: 2px solid #009944; }
+.nqf-ta--error:focus-within .nqf-ta-box { border: 1px solid #f34949; }
+.nqf-ta--disabled:focus-within .nqf-ta-box { border: 1px solid #d0d0d0; }
+
+/* 値が入ったセレクト／日付はプレースホルダ色から本文色に */
+.nqf-select-text.has-value, .nqf-date-text.has-value { color: #333333; }
+
+/* ポップオーバー（セレクトのメニュー／カレンダー／ツールチップ）は body 直下に置く */
+.nqf-pop { position: absolute; z-index: 1000; font-family: var(--font-jp); color: #333333; }
+.nqf-pop * { box-sizing: border-box; }
+.nqf-menu { display: flex; flex-direction: column; min-width: 146px; padding: 4px; border: 1px solid #d0d0d0; border-radius: 8px; background: #ffffff; box-shadow: 0 2px 6px rgba(51, 51, 51, 0.24); overflow: hidden; }
+.nqf-menu .nqf-pditem { width: 100%; cursor: pointer; }
+.nqf-menu .nqf-pditem:hover, .nqf-menu .nqf-pditem:focus-visible { background: #009944; color: #ffffff; outline: none; }
+.nqf-menu .nqf-pditem[aria-selected="true"]::after { content: ""; margin-left: auto; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+.nqf-calpop { width: 296px; padding: 12px; border: 1px solid #d0d0d0; border-radius: 8px; background: #ffffff; box-shadow: 0 2px 6px rgba(51, 51, 51, 0.24); }
+.nqf-calpop button { appearance: none; -webkit-appearance: none; margin: 0; padding: 0; border: 0; background: transparent; font: inherit; color: inherit; cursor: pointer; }
+.nqf-calpop button:focus-visible { outline: 2px solid #009944; outline-offset: -2px; }
+.nqf-calpop-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.nqf-calpop-label { font-weight: 600; font-size: 16px; line-height: 1.4; }
+.nqf-calpop-nav { display: flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 8px; }
+.nqf-calpop-nav:hover { background: #f1efea; }
+.nqf-calpop-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.nqf-calpop-dow { display: flex; height: 28px; align-items: center; justify-content: center; font-weight: 600; font-size: 12px; color: #808080; }
+.nqf-calpop-day { display: flex; height: 36px; align-items: center; justify-content: center; border-radius: 8px; font-weight: 600; font-size: 14px; line-height: 1; color: #333333; }
+.nqf-calpop-day.is-empty { pointer-events: none; }
+.nqf-calpop-day.is-today { color: #009944; }
+.nqf-calpop-day:hover { background: #ddf3e7; }
+.nqf-calpop-day.is-selected, .nqf-calpop-day.is-selected:hover { background: #009944; color: #ffffff; }
+.nqf-calpop-foot { display: flex; justify-content: flex-end; margin-top: 8px; }
+.nqf-calpop-clear { padding: 6px 10px; border-radius: 8px; font-weight: 600; font-size: 12px; color: #808080; }
+.nqf-calpop-clear:hover { background: #f1efea; color: #333333; }
+
+.nqf-tip { max-width: 240px; padding: 8px 12px; border-radius: 8px; background: #333333; color: #ffffff; font-weight: 300; font-size: 12px; line-height: 1.6; box-shadow: 0 2px 6px rgba(51, 51, 51, 0.24); pointer-events: none; }
+.nqf-tip::before { content: ""; position: absolute; left: 12px; top: -5px; width: 10px; height: 10px; background: #333333; transform: rotate(45deg); }
+.nqf-tip.is-above::before { top: auto; bottom: -5px; }
+
+/* チェック／ラジオ／セレクトボタンなど、状態を持つ部品 */
+.nqf-check-inner.nqf-press:hover .nqf-check-label { color: #009944; }
+.nqf-radio.nqf-press:hover, .nqf-adlg-dl-row.nqf-press:hover { color: #009944; }
+.nqf-okng.nqf-press:hover:not(.nqf-okng--on-ok):not(.nqf-okng--on-ng) { background: #c4c4c4; }
+.nqf-selbtn-half.nqf-press:hover:not(.nqf-selbtn-half--ok):not(.nqf-selbtn-half--ng) { background: #c4c4c4; }
+.nqf-dlg-choice.nqf-press:hover:not(.nqf-dlg-choice--selected) { color: #009944; }
+
+/* ボタン類のホバー */
+.nqf-dlg-btn.nqf-press:hover, .nqf-adlg-btn--danger.nqf-press:hover, .nqf-adlg-btn--primary.nqf-press:hover, .nqf-btn-search.nqf-press:hover, .nqf-btn-lg--solid.nqf-press:hover { filter: brightness(0.92); }
+.nqf-dlg-btn--outline.nqf-press:hover, .nqf-dlg-btn--outline-dark.nqf-press:hover, .nqf-adlg-btn.nqf-press:hover, .nqf-btn-outline.nqf-press:hover, .nqf-btn-reset.nqf-press:hover, .nqf-btn-lg.nqf-press:hover { filter: none; background: #f1efea; }
+.nqf-dlg-btn.nqf-press:hover:not(.nqf-dlg-btn--outline):not(.nqf-dlg-btn--outline-dark) { background: #009944; filter: brightness(0.92); }
+
+/* 統合したサンプル用：ラジオを横並びにする */
+.nqf-radio-group { display: flex; align-items: center; gap: 24px; }
+
+/* タブ・カード・ページネーション・ドロップダウン・プルダウン項目：実際のホバー */
+.nqf-canvas .nqf-pditem:not(.nqf-pditem--tag):hover { background: #009944; color: #ffffff; cursor: default; }
+.nqf-tabc-tab.nqf-press:hover:not(.nqf-tabc-tab--active) { background: #f1efea; color: #333333; }
+.nqf-tab.nqf-press:hover:not(.nqf-tab--active) { background: #f1efea; }
+.nqf-tab.nqf-press:hover:not(.nqf-tab--active) .nqf-tab-text { color: #333333; }
+.nqf-card.nqf-press:hover { opacity: 0.7; }
+.nqf-pg-cell.nqf-press:hover:not(.nqf-pg-cell--current) { background: #ddf3e7; }
+.nqf-dditem.nqf-press:hover { background: #f1efea; }
+.nqf-cal-day.nqf-press:hover:not(.nqf-cal-day--active) { background: #f1efea; }
+.nqf-acc-head.nqf-press:hover .nqf-acc-q-text { color: #009944; }
+.nqf-fs-head.nqf-press { cursor: pointer; }
+.nqf-fs-head.nqf-press:hover { text-decoration: underline; text-underline-offset: 3px; }
+.nqf-fs-body[hidden] { display: none; }
+
+/* サンプル下の「試す」ボタン（モーダルで開く／表示する） */
+.nqf-try { display: inline-flex; align-items: center; gap: 6px; margin-top: 0.15rem; padding: 0.32rem 0.75rem; border: 1px solid #009944; border-radius: 999px; background: #ffffff; font-family: var(--font-body); font-weight: 600; font-size: 0.72rem; line-height: 1; color: #009944; cursor: pointer; transition: background-color 0.12s ease; }
+.nqf-try:hover { background: #eaf7ec; }
+.nqf-try:focus-visible { outline: 2px solid #009944; outline-offset: 2px; }
+.nqf-try::before { content: ""; width: 0; height: 0; border-left: 6px solid currentColor; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+
+/* モーダルのオーバーレイ */
+.nqf-overlay { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(51, 51, 51, 0.45); font-family: var(--font-jp); color: #333333; animation: nqf-fade 0.16s ease; }
+.nqf-overlay * { box-sizing: border-box; }
+.nqf-overlay .nqf-dlg { max-width: 100%; max-height: calc(100vh - 48px); overflow: auto; animation: nqf-rise 0.2s ease; }
+body.nqf-lock { overflow: hidden; }
+
+/* トースト（画面右下に実際に表示する） */
+.nqf-toast-host { position: fixed; right: 24px; bottom: 24px; z-index: 2100; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; pointer-events: none; }
+.nqf-toast-host .nqf-toast { pointer-events: auto; cursor: pointer; box-shadow: 0 4px 12px rgba(51, 51, 51, 0.24); animation: nqf-toast-in 0.25s ease; }
+.nqf-toast-host .nqf-toast.is-leaving { animation: nqf-toast-out 0.22s ease forwards; }
+
+@keyframes nqf-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nqf-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes nqf-toast-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes nqf-toast-out { to { opacity: 0; transform: translateY(8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+    .nqf-press, .nqf-overlay, .nqf-overlay .nqf-dlg, .nqf-toast-host .nqf-toast { animation: none; transition: none; }
+}

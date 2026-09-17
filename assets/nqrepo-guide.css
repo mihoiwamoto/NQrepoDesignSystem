@@ -315,7 +315,6 @@ main { max-width: 1400px; margin: 0 auto; }
 .nqf-cert { display: flex; width: 120px; height: 40px; align-items: center; justify-content: space-between; padding: 0 8px; border: 1px solid #d0d0d0; border-radius: 8px; background: #ffffff; overflow: hidden; }
 .nqf-cert-text { font-weight: 600; font-size: 14px; line-height: 1.2; white-space: nowrap; color: #808080; }
 .nqf-cert--verified .nqf-cert-text { color: #009944; }
-.nqf-cert--denial .nqf-cert-text { color: #f34949; }
 .nqf-cert-icon { display: flex; align-items: center; padding: 4px; }
 
 /* Badge（Admin）*/
@@ -893,8 +892,9 @@ details.lib-scope[open] > .lib-scope-head .lib-scope-toggle { transform: rotate(
 .brand-roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
 .brand-role { display: flex; flex-direction: row; align-items: flex-start; gap: 1.1rem; min-width: 0; padding: 1.4rem 1.25rem 1.25rem; border: none; border-radius: 12px; background: var(--color-bg); box-shadow: 0 2px 6px rgba(51, 51, 51, 0.16); }
 .br-body { display: flex; flex-direction: column; gap: 0.5rem; flex: 1 1 auto; min-width: 0; align-self: stretch; }
-.br-icon { display: flex; align-items: flex-start; justify-content: center; flex: 0 0 auto; width: auto; height: auto; padding: 0.15rem 0 0; border-radius: 0; background: none; color: var(--color-accent-text); }
-.br-icon svg { width: 64px; height: 128px; stroke-width: 1.25; display: block; }
+/* ロールアイコン：正方形の塗り（currentColor）SVG。色はページのアクセントに合わせる */
+.br-icon { display: flex; align-items: flex-start; justify-content: center; flex: 0 0 auto; width: auto; height: auto; padding: 0.1rem 0 0; border-radius: 0; background: none; color: var(--color-accent-text); }
+.br-icon svg { width: 72px; height: 72px; display: block; }
 .br-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--color-heading); }
 .br-tag { align-self: flex-start; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; padding: 0.2rem 0.5rem; border-radius: 999px; border: 1px solid var(--color-border); color: var(--color-text-secondary); white-space: nowrap; }
 .brand-role p { font-size: 0.81rem; line-height: 1.85; color: var(--color-text-secondary); margin: 0; }
@@ -977,11 +977,11 @@ details.lib-scope[open] > .lib-scope-head .lib-scope-toggle { transform: rotate(
     .brand-facts { grid-template-columns: minmax(0, 1fr); }
     .bf-illust { flex-basis: 108px; }
     .brand-role { gap: 0.85rem; }
-    .br-icon svg { width: 56px; height: 112px; }
+    .br-icon svg { width: 60px; height: 60px; }
 }
 @media (max-width: 768px) {
     .brand-roles, .brand-principles { grid-template-columns: minmax(0, 1fr); }
-    .br-icon svg { width: 60px; height: 120px; }
+    .br-icon svg { width: 64px; height: 64px; }
 }
 
 /* ==================== Hero / FV ==================== */

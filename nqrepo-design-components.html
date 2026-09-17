@@ -43,7 +43,7 @@
         </nav>
         <article class="doc-main">
         <!-- Section 3: Components -->
-        <section class="section-block" id="components" data-lib-root>
+        <section class="section-block" id="components">
             <div class="doc-title">
                 <h1>コンポーネント</h1>
                 <p class="doc-eyebrow">Components</p>
@@ -91,25 +91,7 @@
                 </div>
             </div>
 
-
-            <div class="lib-filter">
-                <div class="lib-filter-search">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-                    <label class="visually-hidden" for="libSearch">コンポーネントを絞り込む</label>
-                    <input id="libSearch" type="search" data-lib-search placeholder="名前・用途で絞り込む（例：提出、一覧、通知）" autocomplete="off">
-                    <button type="button" class="lib-filter-clear" data-lib-clear aria-label="検索条件をクリア">&times;</button>
-                </div>
-                <div class="lib-chips" role="group" aria-label="スコープで絞り込む">
-                    <button type="button" class="lib-chip" data-lib-scope="all" aria-pressed="true">すべて<span>29</span></button>
-                    <button type="button" class="lib-chip" data-lib-scope="foundation" aria-pressed="false">基本要素<span>5</span></button>
-                    <button type="button" class="lib-chip" data-lib-scope="common" aria-pressed="false">App + Admin<span>6</span></button>
-                    <button type="button" class="lib-chip" data-lib-scope="app" aria-pressed="false">App のみ<span>3</span></button>
-                    <button type="button" class="lib-chip" data-lib-scope="admin" aria-pressed="false">Admin のみ<span>15</span></button>
-                </div>
-                <p class="lib-filter-status" data-lib-status role="status">29 件すべてを表示中</p>
-            </div>
-
-            <div data-lib-group>
+            <div>
             <div class="lib-section-label doc-section" id="foundations">
                 <h2>基本要素</h2>
                 <span>Foundations</span>
@@ -117,7 +99,7 @@
             <p class="lib-section-note">個別のコンポーネントより先に決まる、すべての部品が参照する土台です。ここを変えるとライブラリ全体に波及します。</p>
             <div class="lib-scope">
                 <div class="lib-items">
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-color" data-scope="foundation" data-kw="color color colour 配色 トークン contrast">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-color" data-scope="foundation">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row"><span class="p-sw" style="background:#DDF3E7"></span><span class="p-sw" style="background:#A9E3C4"></span><span class="p-sw" style="background:#4FC183"></span><span class="p-sw" style="background:#009944"></span><span class="p-sw" style="background:#00632C"></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-color"></use></svg><span class="lib-item-name">カラー</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Color</span>
@@ -128,7 +110,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">8 families</span><span class="lib-tag">10 shades</span><span class="lib-tag">WCAG</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-typography" data-scope="foundation" data-kw="typography typography font text 文字 見出し">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-typography" data-scope="foundation">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row" style="gap:10px"><span class="p-aa">Aa</span><span class="p-col" style="width:90px"><i class="p-bar is-dark w70"></i><i class="p-bar w100"></i><i class="p-bar w80"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-typography"></use></svg><span class="lib-item-name">タイポグラフィ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Typography</span>
@@ -139,7 +121,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">PC / Tablet</span><span class="lib-tag">Heading</span><span class="lib-tag">Body</span><span class="lib-tag">Label</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-icon" data-scope="foundation" data-kw="icon icon svg ピクトグラム">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-icon" data-scope="foundation">
                         <span class="lib-prev" aria-hidden="true"><span class="p-icons"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-checkbox"></use></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-calendar"></use></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-filtersearch"></use></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-alert"></use></svg></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-icon"></use></svg><span class="lib-item-name">アイコン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Icon</span>
@@ -150,7 +132,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">統一ストローク</span><span class="lib-tag">SVG</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-elevation" data-scope="foundation" data-kw="elevation elevation shadow 影 重なり z-index">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-elevation" data-scope="foundation">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row p-elev" style="gap:10px"><span class="e1"></span><span class="e2"></span><span class="e3"></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-elevation"></use></svg><span class="lib-item-name">エレベーション</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Elevation</span>
@@ -161,7 +143,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Level 0〜</span><span class="lib-tag">Overlay</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-button" data-scope="foundation" data-kw="button button 押す 操作 CTA solid outline">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-button" data-scope="foundation">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row"><span class="p-btn is-solid">確認者に提出</span><span class="p-btn is-outline">戻る</span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-button"></use></svg><span class="lib-item-name">ボタン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Button</span>
@@ -176,23 +158,23 @@
             </div>
             </div>
 
-            <div data-lib-group>
+            <div>
             <div class="lib-section-label doc-section" id="by-scope">
                 <h2>スコープ別コンポーネント</h2>
                 <span>By Scope</span>
             </div>
             <p class="lib-section-note">同じ名前でも App と Admin ではバリアント構成が異なります。実装前に、どちらのセットを使うのかを必ず確認してください。</p>
 
-            <details class="lib-scope" data-lib-group>
+            <details class="lib-scope">
                 <summary class="lib-scope-head">
                     <span class="lib-scope-chip"><i></i>App + Admin 共通</span>
                     <h4>両プロダクトで使う基本部品</h4>
-                    <span class="lib-scope-count" data-lib-group-count>6 群</span>
+                    <span class="lib-scope-count">6 群</span>
                     <svg class="lib-scope-toggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
                 </summary>
                 <p class="lib-scope-desc">役割は共通ですが、バリアントはプロダクトごとに分かれています。共通だからといって、App のバリアントをそのまま Admin に持ち込まないでください。</p>
                 <div class="lib-items">
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-input" data-scope="common" data-kw="input input textfield 入力 フォーム">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-input" data-scope="common">
                         <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-label">品温</span><span class="p-field is-focus">25.4</span><i class="p-bar is-light w60"></i></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-input"></use></svg><span class="lib-item-name">入力フィールド</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Input</span>
@@ -203,7 +185,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Bordered</span><span class="lib-tag">Focus</span><span class="lib-tag">Error</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-input-date" data-scope="common" data-kw="inputdate date calendar 日付 期間 range">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-input-date" data-scope="common">
                         <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-field">2026/09/15 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="p-field">2026/09/15 〜 09/30</span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-inputdate"></use></svg><span class="lib-item-name">日付入力</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">InputDate</span>
@@ -214,7 +196,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Single</span><span class="lib-tag">Range（Admin）</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-select" data-scope="common" data-kw="select select dropdown 選択 プルダウン OK NG">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-select" data-scope="common">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row"><span class="p-seg is-on">OK</span><span class="p-seg">NG</span><span class="p-seg">補修</span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-select"></use></svg><span class="lib-item-name">セレクト</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Select</span>
@@ -225,7 +207,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">OK / NG / Repair</span><span class="lib-tag">SelectBox</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-status-tag" data-scope="common" data-kw="statustag status tag 状態 バッジ 承認 未実施">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-status-tag" data-scope="common">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row p-wrap"><span class="p-tag is-gray">未実施</span><span class="p-tag is-amber">実施中</span><span class="p-tag is-green">承認済</span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-statustag"></use></svg><span class="lib-item-name">ステータスタグ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">StatusTag</span>
@@ -236,7 +218,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">App 6 種</span><span class="lib-tag">Admin 3 種</span><span class="lib-tag">Certification</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-dialog" data-scope="common" data-kw="dialog dialog modal 確認 モーダル">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-dialog" data-scope="common">
                         <span class="lib-prev" aria-hidden="true"><span class="p-dialog"><i class="p-bar is-dark w55"></i><i class="p-bar is-light w90" style="margin-top:6px"></i><span class="p-row"><span class="p-btn is-ghost">やめる</span><span class="p-btn is-solid">削除する</span></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-dialog"></use></svg><span class="lib-item-name">ダイアログ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Dialog</span>
@@ -247,7 +229,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Modal</span><span class="lib-tag">用途別 5 種（Admin）</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-navigation" data-scope="common" data-kw="navigation navigation header sidenav bottombar 移動 現在地">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-navigation" data-scope="common">
                         <span class="lib-prev" aria-hidden="true"><span class="p-nav"><span class="top"><i></i><span class="p-bar w30"></span></span><span class="body"></span><span class="bottom"><i></i><i></i><i></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-navigation"></use></svg><span class="lib-item-name">ナビゲーション</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Navigation</span>
@@ -261,16 +243,16 @@
                 </div>
             </details>
 
-            <details class="lib-scope" data-lib-group>
+            <details class="lib-scope">
                 <summary class="lib-scope-head">
                     <span class="lib-scope-chip is-app"><i></i>App のみ</span>
                     <h4>記録を作る画面に特化した部品</h4>
-                    <span class="lib-scope-count" data-lib-group-count>3 群</span>
+                    <span class="lib-scope-count">3 群</span>
                     <svg class="lib-scope-toggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
                 </summary>
                 <p class="lib-scope-desc">タッチとタッチペンでの片手操作を前提に、タップ領域と判読性を優先した設計です。情報密度が前提から外れるため、Admin 画面には転用しないでください。</p>
                 <div class="lib-items">
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-checkbox" data-scope="app" data-kw="checkbox checkbox 複数選択 チェック NG">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-checkbox" data-scope="app">
                         <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-row"><span class="p-check is-on">✓</span><i class="p-bar w70"></i></span><span class="p-row"><span class="p-check"></span><i class="p-bar is-light w55"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-checkbox"></use></svg><span class="lib-item-name">チェックボックス</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Checkbox</span>
@@ -281,7 +263,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Check</span><span class="lib-tag">NG</span><span class="lib-tag">On / Off</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-list-item" data-scope="app" data-kw="listitem list row 一覧 検査リスト 行">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-list-item" data-scope="app">
                         <span class="lib-prev" aria-hidden="true"><span class="p-col p-list"><span class="row"><i class="p-bar w55"></i><span class="p-tag is-green">完了</span></span><span class="row"><i class="p-bar w40"></i><span class="p-tag is-gray">未</span></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-listitem"></use></svg><span class="lib-item-name">リストアイテム</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">ListItem</span>
@@ -292,7 +274,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">検査リスト</span><span class="lib-tag">アイテム行</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-inspection-status" data-scope="app" data-kw="inspectionstatus inspection 検査 進捗 数値入力 質問">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-inspection-status" data-scope="app">
                         <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-row" style="justify-content:space-between"><span class="p-row"><span class="p-num">25.4</span><span class="p-unit">℃</span></span><span class="p-tag is-green">3 / 5</span></span><span class="p-prog"><i style="width:60%"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-inspectionstatus"></use></svg><span class="lib-item-name">検査ステータス</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">InspectionStatus</span>
@@ -306,16 +288,16 @@
                 </div>
             </details>
 
-            <details class="lib-scope" data-lib-group>
+            <details class="lib-scope">
                 <summary class="lib-scope-head">
                     <span class="lib-scope-chip is-admin"><i></i>Admin のみ</span>
                     <h4>大量データの閲覧・操作に向けた部品</h4>
-                    <span class="lib-scope-count" data-lib-group-count>15 群</span>
+                    <span class="lib-scope-count">15 群</span>
                     <svg class="lib-scope-toggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
                 </summary>
                 <p class="lib-scope-desc">一覧・絞り込み・ページ送りなど、情報密度を高く保つことを優先しています。ホバー状態を前提とする部品が多く含まれます。</p>
                 <div class="lib-items">
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-table-row" data-scope="admin" data-kw="tablerow table row 一覧 比較 データ">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-table-row" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-table"><span class="tr head"><i class="p-bar is-dark w25"></i><i class="p-bar is-dark w40"></i><i class="p-bar is-dark w25"></i></span><span class="tr"><i class="p-bar w25"></i><i class="p-bar w40"></i><i class="p-bar w25"></i></span><span class="tr"><i class="p-bar w25"></i><i class="p-bar w40"></i><i class="p-bar w25"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-tablerow"></use></svg><span class="lib-item-name">テーブル / 行</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">TableRow</span>
@@ -326,7 +308,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Header</span><span class="lib-tag">用途別データ行</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-filter-search" data-scope="admin" data-kw="filtersearch filter search 絞り込み 検索">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-filter-search" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg> 帳票名で検索</span><span class="p-row"><span class="p-chip on">今月</span><span class="p-chip">工場</span><span class="p-chip">未承認</span></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-filtersearch"></use></svg><span class="lib-item-name">フィルター検索</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">FilterSearch</span>
@@ -337,7 +319,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">active</span><span class="lib-tag">inactive</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-pagination" data-scope="admin" data-kw="pagination pagination ページ送り 一覧">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-pagination" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row p-page"><span class="p-pg">‹</span><span class="p-pg on">1</span><span class="p-pg">2</span><span class="p-pg">3</span><span class="p-pg">›</span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-pagination"></use></svg><span class="lib-item-name">ページネーション</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Pagination</span>
@@ -348,7 +330,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">一覧</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-card" data-scope="admin" data-kw="card card コンテナ 選択 タイル">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-card" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row" style="width:100%;justify-content:center"><span class="p-mini-card on"><i class="p-bar is-dark w70"></i><i class="p-bar is-light w90"></i></span><span class="p-mini-card"><i class="p-bar is-dark w55"></i><i class="p-bar is-light w80"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-card"></use></svg><span class="lib-item-name">カード</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Card</span>
@@ -359,7 +341,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Hover</span><span class="lib-tag">Selected</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-radio-button" data-scope="admin" data-kw="radiobutton radio 単一選択 排他">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-radio-button" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-row"><span class="p-radio is-on"></span><i class="p-bar w60"></i></span><span class="p-row"><span class="p-radio"></span><i class="p-bar is-light w45"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-radiobutton"></use></svg><span class="lib-item-name">ラジオボタン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">RadioButton</span>
@@ -370,7 +352,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">active</span><span class="lib-tag">inactive</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-textarea" data-scope="admin" data-kw="textarea textarea 複数行 備考 自由記述">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-textarea" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-field p-area"><span class="p-col"><i class="p-bar w90"></i><i class="p-bar w100"></i><i class="p-bar is-light w60"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-textarea"></use></svg><span class="lib-item-name">テキストエリア</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Textarea</span>
@@ -381,7 +363,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Focus</span><span class="lib-tag">Error</span><span class="lib-tag">Disabled</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-dropdown" data-scope="admin" data-kw="dropdown dropdown menu メニュー 操作">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-dropdown" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-menu"><span class="mi"><i class="p-bar w60"></i></span><span class="mi on"><i class="p-bar w70"></i></span><span class="mi danger"><i class="p-bar w45"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-dropdown"></use></svg><span class="lib-item-name">ドロップダウン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Dropdown</span>
@@ -392,7 +374,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Hover</span><span class="lib-tag">Danger</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-accordion" data-scope="admin" data-kw="accordion accordion 開閉 折りたたみ">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-accordion" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-acc"><span class="hd"><i class="p-bar is-dark w55"></i><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></b></span><span class="bd"><i class="p-bar is-light w80"></i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-accordion"></use></svg><span class="lib-item-name">アコーディオン</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Accordion</span>
@@ -403,7 +385,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">3 states</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-tab" data-scope="admin" data-kw="tab tab tabbar 切り替え">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-tab" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-col"><span class="p-tabs"><span class="on">検査</span><span>履歴</span><span>設定</span></span><i class="p-bar is-light w80"></i></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-tab"></use></svg><span class="lib-item-name">タブ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Tab</span>
@@ -414,7 +396,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Default</span><span class="lib-tag">Active</span><span class="lib-tag">Hover</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-breadcrumb" data-scope="admin" data-kw="breadcrumb breadcrumb 階層 現在地">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-breadcrumb" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-crumb">工場一覧 › 第一工場 › <b>帳票詳細</b></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-breadcrumb"></use></svg><span class="lib-item-name">パンくずリスト</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Breadcrumb</span>
@@ -425,7 +407,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">2〜10 階層</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-calendar" data-scope="admin" data-kw="calendar calendar 日付 月 カレンダー">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-calendar" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-cal"><i class="head"></i><i class="head"></i><i class="head"></i><i class="head"></i><i class="head"></i><i class="head"></i><i class="head"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-calendar"></use></svg><span class="lib-item-name">カレンダー</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Calendar</span>
@@ -436,7 +418,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">日付セル</span><span class="lib-tag">曜日</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-alert" data-scope="admin" data-kw="alert alert 警告 エラー 注意 inline">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-alert" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-alert"><i>!</i><span class="p-col"><span class="p-bar is-dark w70"></span><span class="p-bar is-light w90"></span></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-alert"></use></svg><span class="lib-item-name">アラート</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Alert</span>
@@ -447,7 +429,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Primary</span><span class="lib-tag">Danger</span><span class="lib-tag">Caution</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-toast" data-scope="admin" data-kw="toast toast snackbar 通知 完了">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-toast" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-toast"><i>✓</i><span class="p-bar"></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-toast"></use></svg><span class="lib-item-name">トースト</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Toast</span>
@@ -458,7 +440,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">Success</span><span class="lib-tag">Error</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-badge" data-scope="admin" data-kw="badge badge 件数 未読 通知">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-badge" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row" style="gap:14px"><span class="p-badge"><i>3</i></span><span class="p-badge"><i>99+</i></span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-badge"></use></svg><span class="lib-item-name">バッジ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">Badge</span>
@@ -469,7 +451,7 @@
                         </dl>
                         <div class="lib-item-tags"><span class="lib-tag">数値</span><span class="lib-tag">99+</span><span class="lib-tag">Dot</span></div>
                     </a>
-                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-authority-tag" data-scope="admin" data-kw="authoritytag authority role 権限 ロール 実施者 承認者">
+                    <a class="lib-item" href="nqrepo-design-styles.html#panel-cat-authority-tag" data-scope="admin">
                         <span class="lib-prev" aria-hidden="true"><span class="p-row p-wrap"><span class="p-tag is-green">実施者</span><span class="p-tag is-gray">確認者</span><span class="p-tag is-amber">承認者</span></span></span>
                         <span class="lib-item-top"><svg class="lib-item-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#nqi-authoritytag"></use></svg><span class="lib-item-name">権限タグ</span><svg class="lib-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
                         <span class="lib-item-en">AuthorityTag</span>
@@ -484,7 +466,6 @@
             </details>
 
             </div>
-            <p class="lib-empty" data-lib-empty hidden>条件に合うコンポーネントがありません。別の言葉や「すべて」で試してください。</p>
             <div class="lib-section-label doc-section" id="conventions">
                 <h2>命名とバリアントの考え方</h2>
                 <span>Conventions</span>
@@ -626,6 +607,5 @@ Admin / TableRow / Company・Header</div>
     </footer>
 
     <script src="assets/nqrepo-doc.js"></script>
-    <script src="assets/nqrepo-components.js" defer></script>
 </body>
 </html>

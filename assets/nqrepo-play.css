@@ -1,0 +1,70 @@
+/* =========================================================
+   プレビュー・プレイグラウンド（スタイルページ）
+   小見出し＋プレビューを項目ごとに1つにまとめ、
+   コンポーネントとバリアントをその場で切り替える
+   ========================================================= */
+/* ---- カード：プレビュー → 部品名 → 操作 → アクション ---- */
+.nqcard { margin-top: 1.75rem; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 16px; background: var(--color-bg); box-shadow: 0 1px 2px rgba(10, 23, 18, 0.04), 0 14px 28px -22px rgba(10, 23, 18, 0.35); }
+
+/* プレビュー面 */
+.nqcard > .btn-card { gap: 1rem; min-height: 224px; padding: 1.5rem; border: 0; border-radius: 11px; justify-content: center; }
+/* 中央寄せ。はみ出す幅の部品では safe が効いて左端から表示される（横スクロールできる） */
+.nqcard > .btn-card .btn-samples { justify-content: safe center; }
+.nqcard > .btn-card .cat-shot { margin-inline: auto; }
+/* バリアントをチップで切り替える部品は、プレビュー内のキャプションを出さない */
+.nqf-play-item[data-has-variants] .btn-caption { display: none; }
+.nqcard > .btn-card .btn-sample { align-items: center; }
+.nqf-play .btn-size-row { min-height: 0; justify-content: center; }
+.nqcard--shot > .btn-card { padding: 1rem; }
+
+/* 部品名 */
+.nqcard-head { display: flex; flex-direction: column; align-items: flex-start; gap: 0.1rem; margin: 0.85rem 0.4rem 0.7rem; font-family: var(--font-display); font-size: 1rem; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--color-heading); }
+.type-group-name .nqf-play-name { font-family: inherit; font-size: inherit; font-weight: inherit; letter-spacing: inherit; text-transform: none; color: inherit; }
+.type-group-name .nqf-play-spec { font-family: monospace; font-size: 0.7rem; font-weight: 400; letter-spacing: 0; text-transform: none; line-height: 1.6; color: var(--color-text-secondary); }
+.nqcard-head:empty, .nqcard-head .nqf-play-spec:empty { display: none; }
+
+/* 操作パネル */
+.nqf-play-bar { display: flex; flex-direction: column; gap: 0.55rem; padding: 0.8rem 0.9rem; border: 0; border-radius: 11px; background: var(--color-bg-secondary); }
+.nqf-play-bar--bare { padding: 0 0.4rem; background: transparent; }
+
+/* アクション（コードを見る／プロンプトをコピー） */
+.nqf-play-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.6rem; }
+.nqf-play-actions:empty { display: none; }
+.nqf-act { display: flex; width: 100%; min-height: 44px; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.6rem 1rem; border-radius: 10px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; line-height: 1.3; white-space: nowrap; cursor: pointer; transition: background-color 0.14s ease, color 0.14s ease, border-color 0.14s ease, transform 0.08s ease; }
+.nqf-act svg { width: 16px; height: 16px; flex: none; }
+.nqf-act:active { transform: translateY(1px); }
+.nqf-act:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.nqf-act--ghost { border: 1px solid var(--color-accent); background: var(--color-bg); color: var(--color-accent-text); }
+.nqf-act--ghost:hover { background: var(--color-accent-soft); }
+.nqf-act--solid { border: 1px solid var(--color-accent-strong); background: var(--color-accent-strong); color: #ffffff; }
+.nqf-act--solid:hover { background: var(--color-accent); border-color: var(--color-accent); }
+
+.nqf-play-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.5rem; }
+.nqf-play-legend { flex: none; margin-right: 0.15rem; font-family: var(--font-body); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); }
+.nqf-play-row + .nqf-play-row { padding-top: 0.55rem; border-top: 1px dashed var(--color-border); }
+
+.nqf-play-chip, .nqf-play-toggle, .nqf-play-seg button { display: inline-flex; align-items: center; gap: 0.4rem; height: 30px; padding: 0 0.75rem; border: 1px solid var(--color-border-strong); border-radius: 999px; background: var(--color-bg); font-family: var(--font-body); font-size: 0.74rem; font-weight: 700; line-height: 1; color: var(--color-text-secondary); white-space: nowrap; cursor: pointer; transition: background-color 0.16s, color 0.16s, border-color 0.16s; }
+.nqf-play-chip:hover, .nqf-play-toggle:hover, .nqf-play-seg button:hover { border-color: var(--color-accent); color: var(--color-accent-text); }
+.nqf-play-chip[aria-pressed="true"], .nqf-play-seg button[aria-pressed="true"] { border-color: var(--color-accent-strong); background: var(--color-accent-strong); color: #ffffff; }
+.nqf-play-chip:focus-visible, .nqf-play-toggle:focus-visible, .nqf-play-seg button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+.nqf-play-toggle::before { content: ''; flex: none; width: 9px; height: 9px; border: 1px solid currentColor; border-radius: 50%; }
+.nqf-play-toggle[aria-pressed="true"] { border-color: var(--color-accent-strong); background: #eaf7ec; color: var(--color-accent-text); }
+.nqf-play-toggle[aria-pressed="true"]::before { background: var(--color-accent-strong); border-color: var(--color-accent-strong); }
+
+.nqf-play-seg { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; }
+.nqf-play-hint { margin: 0; font-size: 0.72rem; line-height: 1.7; color: var(--color-text-secondary); }
+.nqf-play [hidden] { display: none !important; }
+
+@media (max-width: 900px) {
+    .nqf-play-bar { padding: 0.75rem; }
+    .nqcard { padding: 0.6rem; }
+    .nqcard > .btn-card { min-height: 180px; padding: 1.1rem; }
+}
+
+.nqf-play-sublegend { flex: none; margin-left: 0.35rem; font-family: monospace; font-size: 0.7rem; font-weight: 700; color: var(--color-text-secondary); }
+.nqf-play-legend + .nqf-play-sublegend { margin-left: 0; }
+
+/* nqrepo-fold.js が組み替えたプレビュー：部品が1つならチップ行は出さない */
+.nqf-play-row--solo { display: none; }
+.nqf-play-row--solo + .nqf-play-row { padding-top: 0; border-top: 0; }
