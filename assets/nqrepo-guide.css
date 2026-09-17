@@ -244,6 +244,13 @@ main { max-width: 1400px; margin: 0 auto; }
 .nqf-snav-icon { width: 24px; height: 24px; flex: none; }
 .nqf-snav-label { opacity: 0; transition: opacity 0.12s ease; }
 .nqf-snav--open .nqf-snav-label { opacity: 1; }
+/* 検査リスト行（ListItem）：白いカード1行。左に見出しとサブ行、右端にステータス */
+.nqf-listrow { display: flex; width: 632px; max-width: 100%; min-height: 72px; align-items: center; gap: 16px; padding: 0 16px; border-radius: 8px; background: #ffffff; box-shadow: 0 2px 6px rgba(51, 51, 51, 0.16); }
+.nqf-listrow-main { display: flex; flex: 1 1 auto; min-width: 0; flex-direction: column; gap: 2px; }
+.nqf-listrow-title { font-weight: 600; font-size: 20px; line-height: 1.4; color: #333333; }
+.nqf-listrow-sub { display: flex; align-items: center; gap: 2px; font-weight: 600; font-size: 14px; line-height: 1.4; color: #009944; }
+.nqf-listrow-icon { width: 20px; height: 20px; flex: none; }
+.nqf-listrow-status { display: inline-flex; min-width: 76px; height: 30px; flex: none; align-items: center; justify-content: center; padding: 0 12px; border-radius: 8px; background: #808080; font-weight: 600; font-size: 14px; line-height: 1; color: #ffffff; }
 
 
 .nqf-icon { display: block; flex: none; }

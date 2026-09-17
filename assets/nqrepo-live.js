@@ -411,6 +411,8 @@
             b.setAttribute('aria-expanded', String(b.closest('.nqf-snav').classList.contains('nqf-snav--open')));
         });
         $('.nqf-snav-item', scope).forEach(function (n) { act(n, 'btn', 'button'); });
+        // 検査リスト行：行全体がタップ領域
+        $('.nqf-listrow', scope).forEach(function (n) { act(n, 'btn', 'button'); });
         // SelectButton（OK / NG）
         $('.nqf-selbtn', scope).forEach(syncInspection);
         $('.nqf-selbtn-half', scope).forEach(function (half) {

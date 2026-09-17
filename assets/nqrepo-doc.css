@@ -160,7 +160,9 @@ body.doc-page::before { display: none; }
    Show-all: スタイルページはタブ切り替えではなく全パネルを縦に並べる
    ========================================================= */
 .doc-show-all .component-detail-panel { display: block; scroll-margin-top: 100px; }
-.doc-show-all .component-detail-panel + .component-detail-panel { margin-top: 5.5rem; }
+.doc-show-all .component-detail-panel + .component-detail-panel,
+/* 検査ステータスのパネルだけ .component-detail の外に出ているので、同じ間隔をここでも入れる */
+.doc-show-all .component-detail + .component-detail-panel { margin-top: 5.5rem; }
 .doc-show-all .component-detail-title { display: block; margin-bottom: 0.75rem; }
 .doc-show-all .component-detail-title svg { display: none; }
 .doc-show-all .component-detail-title h4 { font-size: 1.65rem; line-height: 1.35; margin: 0; }
@@ -171,6 +173,7 @@ body.doc-page::before { display: none; }
 .doc-panel-group-en { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-secondary); }
 .doc-panel-group + .component-detail-panel { margin-top: 0; }
 @media (max-width: 960px) {
-    .doc-show-all .component-detail-panel + .component-detail-panel { margin-top: 3.5rem; }
+    .doc-show-all .component-detail-panel + .component-detail-panel,
+    .doc-show-all .component-detail + .component-detail-panel { margin-top: 3.5rem; }
     .doc-panel-group { margin-top: 4rem; }
 }
