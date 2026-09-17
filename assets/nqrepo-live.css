@@ -88,28 +88,21 @@ input.nqf-ainput-text { color: #333333; }
 .nqf-fs-head.nqf-press:hover { text-decoration: underline; text-underline-offset: 3px; }
 .nqf-fs-body[hidden] { display: none; }
 
-/* サンプル下の「試す」ボタン（モーダルで開く／表示する） */
+/* サンプル下の「試す」ボタン（トーストを表示する） */
 .nqf-try { display: inline-flex; align-items: center; gap: 6px; margin-top: 0.15rem; padding: 0.32rem 0.75rem; border: 1px solid #009944; border-radius: 999px; background: #ffffff; font-family: var(--font-body); font-weight: 600; font-size: 0.72rem; line-height: 1; color: #009944; cursor: pointer; transition: background-color 0.12s ease; }
 .nqf-try:hover { background: #eaf7ec; }
 .nqf-try:focus-visible { outline: 2px solid #009944; outline-offset: 2px; }
 .nqf-try::before { content: ""; width: 0; height: 0; border-left: 6px solid currentColor; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
 
-/* モーダルのオーバーレイ */
-.nqf-overlay { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(51, 51, 51, 0.45); font-family: var(--font-jp); color: #333333; animation: nqf-fade 0.16s ease; }
-.nqf-overlay * { box-sizing: border-box; }
-.nqf-overlay .nqf-dlg { max-width: 100%; max-height: calc(100vh - 48px); overflow: auto; animation: nqf-rise 0.2s ease; }
-body.nqf-lock { overflow: hidden; }
 
 /* トースト（画面右下に実際に表示する） */
 .nqf-toast-host { position: fixed; right: 24px; bottom: 24px; z-index: 2100; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; pointer-events: none; }
 .nqf-toast-host .nqf-toast { pointer-events: auto; cursor: pointer; box-shadow: 0 4px 12px rgba(51, 51, 51, 0.24); animation: nqf-toast-in 0.25s ease; }
 .nqf-toast-host .nqf-toast.is-leaving { animation: nqf-toast-out 0.22s ease forwards; }
 
-@keyframes nqf-fade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes nqf-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @keyframes nqf-toast-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @keyframes nqf-toast-out { to { opacity: 0; transform: translateY(8px); } }
 
 @media (prefers-reduced-motion: reduce) {
-    .nqf-press, .nqf-overlay, .nqf-overlay .nqf-dlg, .nqf-toast-host .nqf-toast { animation: none; transition: none; }
+    .nqf-press, .nqf-toast-host .nqf-toast { animation: none; transition: none; }
 }

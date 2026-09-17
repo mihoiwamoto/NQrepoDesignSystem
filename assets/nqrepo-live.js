@@ -245,32 +245,6 @@
         if (t) { hideTip(t); }
     });
 
-    /* ---------- モーダル ---------- */
-    var overlay = null, overlayTrigger = null;
-    function openOverlay(dlg, trigger) {
-        closeOverlay();
-        overlayTrigger = trigger || null;
-        overlay = el('div', 'nqf-overlay');
-        overlay.setAttribute('role', 'dialog');
-        overlay.setAttribute('aria-modal', 'true');
-        var clone = dlg.cloneNode(true);
-        $('input, textarea', clone).forEach(function (f) { f.value = ''; });
-        var title = clone.querySelector('.nqf-dlg-title, .nqf-adlg-title h5');
-        if (title) { overlay.setAttribute('aria-label', title.textContent.trim()); }
-        overlay.appendChild(clone);
-        overlay.addEventListener('click', function (e) { if (e.target === overlay) { closeOverlay(); } });
-        document.body.appendChild(overlay);
-        document.body.classList.add('nqf-lock');
-        var first = clone.querySelector('input, textarea, [data-nqf-act]');
-        if (first) { first.focus(); }
-    }
-    function closeOverlay() {
-        if (!overlay) { return; }
-        overlay.remove(); overlay = null;
-        document.body.classList.remove('nqf-lock');
-        if (overlayTrigger) { overlayTrigger.focus(); overlayTrigger = null; }
-    }
-
     /* ---------- トースト ---------- */
     function toastHost() {
         var h = document.querySelector('.nqf-toast-host');
@@ -512,14 +486,6 @@
             s.setAttribute('aria-label', 'ヘルプ');
             s.setAttribute('focusable', 'true');
         });
-        // ダイアログ：モーダルで開く
-        $('.nqf-dlg', scope).forEach(function (dlg) {
-            if (dlg.dataset.nqfTry || dlg.closest('.nqf-overlay')) { return; }
-            dlg.dataset.nqfTry = '1';
-            var sample = wrapSample(dlg);
-            var b = el('button', 'nqf-try', 'モーダルで開く'); b.type = 'button'; b.dataset.nqfAct = 'openDlg';
-            sample.appendChild(b);
-        });
         // トースト：表示する
         $('.nqf-toast', scope).forEach(function (t) {
             if (t.dataset.nqfTry || t.closest('.nqf-toast-host')) { return; }
@@ -633,7 +599,6 @@
             return;
         }
         case 'dlgbtn':
-            if (t.closest('.nqf-overlay')) { closeOverlay(); }
             return;
         case 'btn':
             return;
@@ -725,11 +690,6 @@
         case 'tip':
             if (tipFor === t && tipPinned) { closePop(); } else { showTip(t, true); }
             return;
-        case 'openDlg': {
-            var dlg = t.parentElement.querySelector('.nqf-dlg');
-            if (dlg) { openOverlay(dlg, t); }
-            return;
-        }
         case 'showToast': {
             var node = t.parentElement.querySelector('.nqf-toast');
             if (node) { showToastNode(node); }
@@ -742,7 +702,7 @@
 
     // Enter / Space で押せるように（ネイティブの button / input を除く）
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') { closePop(); closeOverlay(); return; }
+        if (e.key === 'Escape') { closePop(); return; }
         if (e.key !== 'Enter' && e.key !== ' ') { return; }
         var t = e.target;
         if (!t.dataset || !t.dataset.nqfAct) { return; }
