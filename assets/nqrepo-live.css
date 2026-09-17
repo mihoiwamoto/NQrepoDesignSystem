@@ -106,3 +106,6 @@ input.nqf-ainput-text { color: #333333; }
 @media (prefers-reduced-motion: reduce) {
     .nqf-press, .nqf-toast-host .nqf-toast { animation: none; transition: none; }
 }
+
+/* 検査不備ダイアログ：正常（チェック）を選んだときに隠す入力 */
+.nqf-dlg-unit[hidden] { display: none !important; }

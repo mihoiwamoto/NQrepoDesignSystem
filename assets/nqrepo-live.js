@@ -245,6 +245,22 @@
         if (t) { hideTip(t); }
     });
 
+    /* ---------- 検査不備ダイアログ ---------- */
+    /* 点検箇所の OK / NG で、チェック（正常）を選んだときは
+       あとに続く入力（原因・対応など）が不要になるので隠す */
+    function syncInspection(wrap) {
+        var unit = wrap.closest('.nqf-dlg-unit');
+        var section = unit && unit.parentElement;
+        if (!section || !section.classList.contains('nqf-dlg-section')) { return; }
+        var ok = !!wrap.querySelector('.nqf-selbtn-half--ok');
+        var after = false;
+        Array.prototype.forEach.call(section.children, function (n) {
+            if (n === unit) { after = true; return; }
+            if (!after || !n.classList.contains('nqf-dlg-unit')) { return; }
+            if (ok) { n.setAttribute('hidden', ''); } else { n.removeAttribute('hidden'); }
+        });
+    }
+
     /* ---------- トースト ---------- */
     function toastHost() {
         var h = document.querySelector('.nqf-toast-host');
@@ -390,6 +406,7 @@
             box.setAttribute('aria-checked', String(box.classList.contains('nqf-okng--on-ok') || box.classList.contains('nqf-okng--on-ng')));
         });
         // SelectButton（OK / NG）
+        $('.nqf-selbtn', scope).forEach(syncInspection);
         $('.nqf-selbtn-half', scope).forEach(function (half) {
             if (!act(half, 'half', 'radio')) { return; }
             var ng = useId(half.querySelector('svg')) === 'nqf-i-cancel';
@@ -573,6 +590,7 @@
                 h.setAttribute('aria-checked', 'false');
             });
             if (!was) { t.classList.add(hcls); t.setAttribute('aria-checked', 'true'); }
+            syncInspection(wrap);
             // 同じ行にステータスタグがあれば連動させる
             var row = t.closest('.nqf-dlg-row, .nqf-selitem-row, .nqf-selitem-head');
             var tag = row && row.querySelector('.nqf-stag');
