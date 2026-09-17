@@ -427,6 +427,8 @@ main { max-width: 1400px; margin: 0 auto; }
 .nqf-dditem { display: flex; width: 200px; height: 40px; align-items: center; padding: 10px 16px; background: #ffffff; font-family: var(--font-body); font-weight: 400; font-size: 14px; line-height: normal; color: #333333; white-space: nowrap; }
 .nqf-dditem--hover { background: #f1efea; }
 .nqf-dditem--danger { color: #f34949; }
+/* 展開中のメニューで選ばれている項目：NQ の実装に合わせて brand/primary の地色に白文字 */
+.nqf-dditem--selected, .nqf-ddmenu .nqf-dditem--selected { background: #009944; color: #ffffff; }
 .nqf-ddmenu { display: flex; width: 200px; height: 128px; flex-direction: column; align-items: flex-start; padding: 4px 0; border: 1px solid #d0d0d0; border-radius: 6px; background: #ffffff; overflow: hidden; }
 .nqf-ddmenu .nqf-dditem { align-items: flex-start; }
 

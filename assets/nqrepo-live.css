@@ -89,6 +89,8 @@ input.nqf-ainput-text { color: #333333; }
 .nqf-card.nqf-press:hover { opacity: 0.7; }
 .nqf-pg-cell.nqf-press:hover:not(.nqf-pg-cell--current) { background: #ddf3e7; }
 .nqf-dditem.nqf-press:hover { background: #f1efea; }
+.nqf-ddmenu .nqf-dditem.nqf-press { cursor: pointer; }
+.nqf-dditem--selected.nqf-press:hover { background: #009944; color: #ffffff; }
 .nqf-cal-day.nqf-press:hover:not(.nqf-cal-day--active) { background: #f1efea; }
 .nqf-acc-head.nqf-press:hover .nqf-acc-q-text { color: #009944; }
 .nqf-fs-head.nqf-press { cursor: pointer; }

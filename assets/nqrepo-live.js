@@ -505,8 +505,12 @@
             if (body) { body.hidden = !open; }
             h.setAttribute('aria-expanded', String(open));
         });
-        // ドロップダウン項目
-        $('.nqf-dditem', scope).forEach(function (d) { act(d, 'dd', 'menuitem'); });
+        // ドロップダウン項目（展開中のメニューの中はクリックで選択できる）
+        $('.nqf-dditem', scope).forEach(function (d) {
+            var inMenu = !!d.closest('.nqf-ddmenu');
+            if (!act(d, 'dd', inMenu ? 'menuitemradio' : 'menuitem')) { return; }
+            if (inMenu) { d.setAttribute('aria-checked', String(d.classList.contains('nqf-dditem--selected'))); }
+        });
         $('.nqf-ddmenu', scope).forEach(function (m) { m.setAttribute('role', 'menu'); });
         // ツールチップ（? アイコン）
         $('svg', scope).forEach(function (s) {
@@ -734,9 +738,17 @@
             if (body2) { body2.hidden = !open2; }
             return;
         }
-        case 'dd':
-            // Hover は実際のホバーで表現するので、クリックでは押下フィードバックのみ
+        case 'dd': {
+            // Hover は実際のホバーで表現する。展開中のメニューではクリックで選択（緑）に
+            var ddmenu = t.closest('.nqf-ddmenu');
+            if (!ddmenu) { return; }
+            $('.nqf-dditem', ddmenu).forEach(function (n) {
+                var on = n === t;
+                n.classList.toggle('nqf-dditem--selected', on);
+                n.setAttribute('aria-checked', String(on));
+            });
             return;
+        }
         case 'tip':
             if (tipFor === t && tipPinned) { closePop(); } else { showTip(t, true); }
             return;
