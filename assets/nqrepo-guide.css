@@ -328,6 +328,15 @@ main { max-width: 1400px; margin: 0 auto; }
 .nqf-stag--unchecked { background: #808080; }
 .nqf-stag--seeoff { background: #ffffff; border: 1px solid #ddf3e7; color: #009944; }
 
+/* 検査ステータス（App）: 80 × 32 / 角丸 8px / W6 14px */
+.nqf-istag { display: flex; width: 80px; height: 32px; align-items: center; justify-content: center; padding: 2px 8px; border-radius: 8px; font-weight: 600; font-size: 14px; line-height: 1.2; color: #ffffff; white-space: nowrap; }
+.nqf-istag--unchecked { background: #808080; }
+.nqf-istag--progress { background: #4b9ff8; }
+.nqf-istag--inspected { background: #dcaa14; }
+.nqf-istag--checked { background: #19c95f; }
+.nqf-istag--remand { background: #f85c5c; }
+.nqf-istag--seeoff { background: #dcaa14; }
+
 /* StatusTag（Admin）88x28 */
 .nqf-stag-lg { display: flex; width: 88px; height: 28px; align-items: center; justify-content: center; padding: 2px 8px; border-radius: 8px; font-weight: 600; font-size: 16px; line-height: 1; color: #ffffff; white-space: nowrap; }
 
