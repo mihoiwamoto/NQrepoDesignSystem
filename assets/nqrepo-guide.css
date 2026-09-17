@@ -233,6 +233,19 @@ main { max-width: 1400px; margin: 0 auto; }
 .btn-card.nqf-canvas .btn-size-label span { color: #8f8f8f; }
 .btn-samples.nqf-samples { gap: 1.25rem 2.5rem; }
 .nqf-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* サイドナビゲーション（Admin）: アイコンレール 72 × 960、展開時 240 × 960 */
+.nqf-snav { display: flex; width: 72px; height: 960px; flex-direction: column; background: #009944; color: #ffffff; overflow: hidden; transition: width 0.18s ease; }
+.nqf-snav--open { width: 240px; }
+.nqf-snav-toggle, .nqf-snav-item { display: flex; height: 72px; flex: none; align-items: center; gap: 24px; padding: 0 24px; font-weight: 600; font-size: 16px; line-height: 1; color: #ffffff; white-space: nowrap; }
+.nqf-snav-items { display: flex; flex: 1 1 auto; flex-direction: column; }
+.nqf-snav-foot { display: flex; flex: none; flex-direction: column; }
+.nqf-snav-item--active { background: rgba(255, 255, 255, 0.18); }
+.nqf-snav-icon { width: 24px; height: 24px; flex: none; }
+.nqf-snav-label { opacity: 0; transition: opacity 0.12s ease; }
+.nqf-snav--open .nqf-snav-label { opacity: 1; }
+
+
 .nqf-icon { display: block; flex: none; }
 
 /* InputText 280x48 */

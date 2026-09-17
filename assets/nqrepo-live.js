@@ -405,6 +405,12 @@
             box.setAttribute('aria-label', (labelFor(box) ? labelFor(box) + '：' : '') + (ng ? 'NG' : 'チェック'));
             box.setAttribute('aria-checked', String(box.classList.contains('nqf-okng--on-ok') || box.classList.contains('nqf-okng--on-ng')));
         });
+        // サイドナビゲーション：アイコンレールと展開表示の切り替え
+        $('.nqf-snav-toggle', scope).forEach(function (b) {
+            if (!act(b, 'snav', 'button')) { return; }
+            b.setAttribute('aria-expanded', String(b.closest('.nqf-snav').classList.contains('nqf-snav--open')));
+        });
+        $('.nqf-snav-item', scope).forEach(function (n) { act(n, 'btn', 'button'); });
         // SelectButton（OK / NG）
         $('.nqf-selbtn', scope).forEach(syncInspection);
         $('.nqf-selbtn-half', scope).forEach(function (half) {
@@ -571,6 +577,15 @@
             var on = useId(svg) !== 'nqf-i-ckeckbox-on';
             setUse(svg, on ? 'nqf-i-ckeckbox-on' : 'nqf-i-ckeckbox');
             t.setAttribute('aria-checked', String(on));
+            return;
+        }
+        case 'snav': {
+            var nav = t.closest('.nqf-snav');
+            var open = nav.classList.toggle('nqf-snav--open');
+            t.setAttribute('aria-expanded', String(open));
+            var label = t.querySelector('.nqf-snav-label');
+            if (label) { label.textContent = open ? 'メニューを閉じる' : 'メニューを開く'; }
+            t.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
             return;
         }
         case 'okng': {

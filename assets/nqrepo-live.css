@@ -74,6 +74,10 @@ input.nqf-ainput-text { color: #333333; }
 /* 統合したサンプル用：ラジオを横並びにする */
 .nqf-radio-group { display: flex; align-items: center; gap: 24px; }
 
+/* サイドナビゲーション：ホバーとフォーカス */
+.nqf-snav-toggle.nqf-press:hover, .nqf-snav-item.nqf-press:hover:not(.nqf-snav-item--active) { background: rgba(255, 255, 255, 0.12); }
+.nqf-snav-toggle.nqf-press:focus-visible, .nqf-snav-item.nqf-press:focus-visible { outline: 2px solid #ffffff; outline-offset: -2px; }
+
 /* タブ・カード・ページネーション・ドロップダウン・プルダウン項目：実際のホバー */
 .nqf-canvas .nqf-pditem:not(.nqf-pditem--tag):hover { background: #009944; color: #ffffff; cursor: default; }
 .nqf-tabc-tab.nqf-press:hover:not(.nqf-tabc-tab--active) { background: #f1efea; color: #333333; }
