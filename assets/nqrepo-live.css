@@ -36,7 +36,6 @@ input.nqf-ainput-text { color: #333333; }
 .nqf-menu { display: flex; flex-direction: column; min-width: 146px; padding: 4px; border: 1px solid #d0d0d0; border-radius: 8px; background: #ffffff; box-shadow: 0 2px 6px rgba(51, 51, 51, 0.24); overflow: hidden; }
 .nqf-menu .nqf-pditem { width: 100%; cursor: pointer; }
 .nqf-menu .nqf-pditem:hover, .nqf-menu .nqf-pditem:focus-visible { background: #009944; color: #ffffff; outline: none; }
-.nqf-menu .nqf-pditem[aria-selected="true"]::after { content: ""; margin-left: auto; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
 .nqf-calpop { width: 296px; padding: 12px; border: 1px solid #d0d0d0; border-radius: 8px; background: #ffffff; box-shadow: 0 2px 6px rgba(51, 51, 51, 0.24); }
 .nqf-calpop button { appearance: none; -webkit-appearance: none; margin: 0; padding: 0; border: 0; background: transparent; font: inherit; color: inherit; cursor: pointer; }
