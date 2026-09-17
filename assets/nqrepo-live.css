@@ -78,6 +78,9 @@ input.nqf-ainput-text { color: #333333; }
 .nqf-snav-toggle.nqf-press:hover, .nqf-snav-item.nqf-press:hover:not(.nqf-snav-item--active) { background: rgba(255, 255, 255, 0.12); }
 .nqf-snav-toggle.nqf-press:focus-visible, .nqf-snav-item.nqf-press:focus-visible { outline: 2px solid #ffffff; outline-offset: -2px; }
 .nqf-listrow.nqf-press:hover { background: #f8f8f8; }
+/* 製品コンテナ：ホバーで文字色を落とす（Figma のホバーバリアントと同じ見え方）。クリックで選択中に */
+.nqf-pcont.nqf-press:hover:not(.nqf-pcont--selected) { color: #717171; }
+.nqf-pcont.nqf-press:hover:not(.nqf-pcont--selected) .nqf-pcont-icon { background: #f1f1f1; }
 
 /* タブ・カード・ページネーション・ドロップダウン・プルダウン項目：実際のホバー */
 .nqf-canvas .nqf-pditem:not(.nqf-pditem--tag):hover { background: #009944; color: #ffffff; cursor: default; }

@@ -413,6 +413,11 @@
         $('.nqf-snav-item', scope).forEach(function (n) { act(n, 'btn', 'button'); });
         // 検査リスト行：行全体がタップ領域
         $('.nqf-listrow', scope).forEach(function (n) { act(n, 'btn', 'button'); });
+        // 製品コンテナ：クリックで選択状態を切り替える（同じ並びの中では1つだけ）
+        $('.nqf-pcont', scope).forEach(function (n) {
+            if (!act(n, 'pcont', 'button')) { return; }
+            n.setAttribute('aria-pressed', String(n.classList.contains('nqf-pcont--selected')));
+        });
         // SelectButton（OK / NG）
         $('.nqf-selbtn', scope).forEach(syncInspection);
         $('.nqf-selbtn-half', scope).forEach(function (half) {
@@ -579,6 +584,16 @@
             var on = useId(svg) !== 'nqf-i-ckeckbox-on';
             setUse(svg, on ? 'nqf-i-ckeckbox-on' : 'nqf-i-ckeckbox');
             t.setAttribute('aria-checked', String(on));
+            return;
+        }
+        case 'pcont': {
+            var group = t.closest('.btn-samples') || t.parentNode;
+            var pick = !t.classList.contains('nqf-pcont--selected');
+            $('.nqf-pcont', group).forEach(function (n) {
+                var on = pick && n === t;
+                n.classList.toggle('nqf-pcont--selected', on);
+                n.setAttribute('aria-pressed', String(on));
+            });
             return;
         }
         case 'snav': {
